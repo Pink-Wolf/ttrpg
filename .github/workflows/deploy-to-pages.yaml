@@ -1,0 +1,73 @@
+# Based on https://github.com/actions/starter-workflows/blob/main/pages/nextjs.yml
+
+name: Deploys documentation to Pages
+
+on:
+  push:
+    branches: main
+    paths:
+      - '.github/workflows/deploy-to-pages.yaml'
+      - 'TTRPGDocs/**'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-docs:
+    name: Build Docs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        cache: 'npm'
+        cache-dependency-path: 'TTRPGDocs/ttrpg.client/package-lock.json'
+    - name: Setup pages
+      uses: actions/configure-pages@v5
+      with:
+        static_site_generator: next
+        
+    - name: Restore client Cache
+      uses: actions/cache@v4
+      with:
+        path: TTRPGDocs/ttrpg.client/.next/cache
+        key: client-${{hashFiles('TTRPGDocs/ttrpg.client/package-lock.json')}}-${{hashFiles('TTRPGDocs/ttrpg.client/src/**')}}
+        restore-keys: |
+          client-${{hashFiles('TTRPGDocs/ttrpg.client/package-lock.json')}}-
+      
+    - name: Build Database Server
+      run: dotnet build TTRPGDocs/ttrpg.server/ --configuration Release
+    - name: Install Docs Client Dependencies
+      run: npm ci
+      working-directory: TTRPGDocs/ttrpg.client/
+
+    - name: Start Database Server
+      run: dotnet run --project TTRPGDocs/ttrpg.server/ --launch-profile https --configuration Release &
+    - name: Build Docs Client
+      run: npm run build
+      working-directory: TTRPGDocs/ttrpg.client/
+    - name: Upload Docs
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: TTRPGDocs/ttrpg.client/out/
+
+  deploy:
+    name: Deploy Docs to Pages
+    environment:
+      name: github-pages
+      url: ${{steps.pages-deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    needs: build-docs
+    steps:
+      - name: Deploy Pages
+        id: pages-deployment
+        uses: actions/deploy-pages@v4

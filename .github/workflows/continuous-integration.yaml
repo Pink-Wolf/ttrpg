@@ -1,0 +1,29 @@
+name: Continous Integration of CompWolf.Programs
+
+on:
+  push:
+    paths:
+      - '.github/workflows/continuous-integration.yaml'
+      - 'TTRPGDocs/**'
+jobs:
+  dotnet:
+    name: .Net Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+    - name: Install Dependencies
+      run: dotnet restore TTRPGDocs
+      
+    - name: Build and Test
+      run: dotnet test TTRPGDocs --no-restore --configuration Release --logger "trx;logfilename=test-results.trx" --results-directory out
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: .Net Test Results
+        path: out/test-results.trx
+      if: ${{ always() }} # Upload artifacts, even when tests fail
