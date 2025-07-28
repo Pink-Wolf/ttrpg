@@ -17,14 +17,14 @@ export async function DestinyViewer({ data }: { data: Destiny }) {
     </article>)
 }
 
-export function getAllDestinies(): Promise<Map<string, Destiny>> {
-    return getData(DESTINY_URL_PATH)
+export function getAllDestinies(): Promise<Record<string, Destiny>> {
+    return getData<Record<string, Destiny>>(DESTINY_URL_PATH)
 }
 export async function getDestiny(encodedName: string): Promise<Destiny> {
     if (process.env.CACHE_SERVER_DATA == `1`) { // just get all destinies once, if they are cached anyways
         const name = decodeStaticParamsEncoder(encodedName)
         const dataContainer = await getAllDestinies()
-        const data = dataContainer.get(name)
+        const data = dataContainer[name]
         if (data === undefined) throw new Error(
             `Could not find destiny with name ${name}`
         )
