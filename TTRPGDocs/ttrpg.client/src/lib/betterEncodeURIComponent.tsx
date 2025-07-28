@@ -1,30 +1,21 @@
-export default function betterEncodeURIComponent(str) {
+export default function betterEncodeURIComponent(str: string): string {
     // code taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent > Encoding for RFC3986
     return encodeURIComponent(str).replace(
         /[!'()*\:]/g,
         (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`,
     )
 }
-
-// Currently unused as it is decodeStaticParamsEncoder and not generateStaticParamsEncoder that changes depending on GENERATE_STATIC_PARAMS_AUTO_ENCODES
-function encodeURIWhenAutoEncoded(str) {
-    return str.replace(
-        /\:/g,
-        (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`,
-    )
-}
-
-export function generateStaticParamsPath(str) {
+export function generateStaticParamsPath(str: string): string {
     return (process.env.GENERATE_STATIC_PARAMS_AUTO_ENCODES === "1")
         ? betterEncodeURIComponent(betterEncodeURIComponent(str))
         : betterEncodeURIComponent(str)
 }
 
-export function generateStaticParamsEncoder(str) {
+export function generateStaticParamsEncoder(str: string): string {
     return betterEncodeURIComponent(str)
 }
 
-export function decodeStaticParamsEncoder(str) {
+export function decodeStaticParamsEncoder(str: string): string {
     return (process.env.GENERATE_STATIC_PARAMS_AUTO_ENCODES === "1")
         ? decodeURIComponent(decodeURIComponent(str))
         : decodeURIComponent(str)
