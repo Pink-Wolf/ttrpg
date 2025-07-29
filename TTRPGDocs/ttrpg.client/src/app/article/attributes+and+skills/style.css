@@ -1,0 +1,34 @@
+#attribute-table {
+    border: 0;
+}
+
+    #attribute-table > thead {
+        display: none;
+    }
+
+    #attribute-table > tbody {
+    }
+
+        #attribute-table > tbody > tr {
+            display: inline-block;
+            height: 5em;
+            margin: .5em;
+        }
+
+            #attribute-table > tbody > tr > * {
+                display: block;
+                width: 15em;
+                text-wrap: balance;
+                text-align: center;
+            }
+
+#skill-table > * > * > td {
+    width: 6em
+}
+
+#skill-detail-section {
+    display: grid;
+    width: stretch;
+    grid-template-columns: repeat(auto-fill, 15em);
+    grid-gap: 1em
+}

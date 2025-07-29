@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getDestiny, DestinyViewer, getAllDestinies } from "@/data/destiny"
-import { generateStaticParamsEncoder } from "@/betterEncodeURIComponent";
 
 export default async function DestinyPage({ params }: { params: Promise<{ destinyName: string }> }) {
     const args = await params
@@ -23,7 +22,7 @@ export async function generateStaticParams() {
 
     return Object.keys(dataCollection).map(name => {
         const result = {
-            destinyName: generateStaticParamsEncoder(name)
+            destinyName: name
         }
         return result
     })

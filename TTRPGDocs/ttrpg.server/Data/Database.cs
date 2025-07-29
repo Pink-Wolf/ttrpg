@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using ttrpg.server.Model;
+using ttrpg.server.Tools;
 
 namespace ttrpg.server.Data
 {
@@ -57,7 +58,7 @@ namespace ttrpg.server.Data
             for (int i = 0; i < results.Length; ++i)
             {
                 var article = await (Task<string>)results[i];
-                results[i] = $"\"{names[i]}\": {article}";
+                results[i] = $"\"{URIEncoder.Encode(names[i])}\": {article}";
             }
             return $"{{\n{string.Join(",\n", results)}\n}}";
         }
@@ -79,7 +80,7 @@ namespace ttrpg.server.Data
                 results[i] = await (Task<Destiny>)results[i];
             }
             return names
-                .Zip(results, (key, value) => KeyValuePair.Create(key, (Destiny)value))
+                .Zip(results, (key, value) => KeyValuePair.Create(URIEncoder.Encode(key), (Destiny)value))
                 .ToDictionary()
             ;
         }
