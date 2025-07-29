@@ -13,7 +13,9 @@ namespace ttrpg.server.Tools
             int encodedAmount = 0;
             for (int index = 0; index < str.Length; ++index) {
                 var c = str[index];
-                if ("!'()*:".Contains(c))
+                if (c == '+') c = ' ';
+
+                if ("!'()*: ".Contains(c))
                 {
                     sb.Append(str[encodedAmount..index]);
                     sb.Append('%');

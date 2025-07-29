@@ -1,4 +1,4 @@
-import { decodeStaticParamsEncoder } from "@/betterEncodeURIComponent";
+import betterEncodeURIComponent, { decodeStaticParamsEncoder } from "@/betterEncodeURIComponent";
 import { getData } from "./getData";
 
 const DESTINY_URL_PATH = `destiny/`
@@ -20,7 +20,8 @@ export async function DestinyViewer({ data }: { data: Destiny }) {
 export function getAllDestinies(): Promise<Record<string, Destiny>> {
     return getData<Record<string, Destiny>>(DESTINY_URL_PATH)
 }
-export async function getDestiny(encodedName: string): Promise<Destiny> {
+export async function getDestiny(name: string): Promise<Destiny> {
+    const encodedName = betterEncodeURIComponent(name)
     if (process.env.CACHE_SERVER_DATA == `1`) { // just get all destinies once, if they are cached anyways
         const dataContainer = await getAllDestinies()
         const data = dataContainer[encodedName]

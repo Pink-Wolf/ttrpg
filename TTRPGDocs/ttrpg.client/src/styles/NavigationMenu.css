@@ -1,0 +1,40 @@
+.navigation-menu {
+    color: var(--secondaryColor);
+    background: var(--secondaryBackground);
+    padding: 0;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+    .navigation-menu > li {
+        display: inline-block;
+        padding: .25em .5em .25em .5em;
+        position: relative;
+        width: 5em;
+        text-align: center;
+    }
+
+        .navigation-menu > li > .navigation-menu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0%;
+            transition: all .25s ease;
+        }
+
+            .navigation-menu > li > .navigation-menu > li > .navigation-menu {
+                display: inline;
+                top: 0%;
+                left: 100%;
+            }
+
+        .navigation-menu > li:hover > .navigation-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .navigation-menu > li > .navigation-menu > li {
+            width: 100%;
+            box-sizing: border-box;
+        }
