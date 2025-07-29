@@ -1,8 +1,8 @@
 import "@/styles/globals.css"
 import type { Metadata } from "next";
-import { getArticles } from "./article/page";
 import { getAllDestinies } from "@/data/destiny";
 import NavigationMenu from "@/NavigationMenu";
+import getArticleNames from "./article/getArticleNames";
 
 export const dynamic = 'force-static'
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 async function HeaderMenu() {
-    const articles = getArticles()
+    const articles = getArticleNames()
     const destinies = await getAllDestinies()
 
     return (<NavigationMenu items={

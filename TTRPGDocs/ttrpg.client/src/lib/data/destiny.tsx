@@ -1,4 +1,4 @@
-import betterEncodeURIComponent, { decodeStaticParamsEncoder } from "@/betterEncodeURIComponent";
+import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData } from "./getData";
 
 const DESTINY_URL_PATH = `destiny/`

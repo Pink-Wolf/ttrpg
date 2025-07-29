@@ -6,6 +6,14 @@ export default function betterEncodeURIComponent(str: string): string {
             (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`,
         )
 }
-export function betterDecodeURIComponent(str: string): string {
-    return decodeURIComponent(str)
+
+export function encodePageParameter(str: string): string {
+    return (process.env.GENERATE_STATIC_PARAMS_AUTO_ENCODES === "1")
+        ? str
+        : betterEncodeURIComponent(str)
+}
+export function decodePageParameter(str: string): string {
+    return (process.env.GENERATE_STATIC_PARAMS_AUTO_ENCODES === "1")
+        ? decodeURIComponent(decodeURIComponent(str))
+        : decodeURIComponent(str)
 }
