@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ttrpg.server.Data;
+using ttrpg.server.Tools;
 
 namespace ttrpg.server.Controllers
 {
@@ -13,6 +14,7 @@ namespace ttrpg.server.Controllers
         [ProducesResponseType(200), ProducesResponseType(404)]
         public async Task<ActionResult<string>> GetArticle(string path)
         {
+            path = URIEncoder.DecodeControllerArg(path);
             var result = await data.GetDestinyFast(path);
             if (result is null) return NotFound();
             return result;

@@ -9,7 +9,7 @@ export default async function ArticlePage() {
         <h1>List of Destinies</h1>
         <ul>
             {Object.entries(destinies).map(([path, destiny]) => {
-                return <li key={path}><Link href={path}>{destiny.name}</Link></li>
+                return <li key={path}><Link href={`/destiny/${path}`}>{destiny.name}</Link></li>
             })}
         </ul>
     </Fragment>)

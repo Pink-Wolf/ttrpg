@@ -13,9 +13,8 @@ namespace ttrpg.server.Tools
             int encodedAmount = 0;
             for (int index = 0; index < str.Length; ++index) {
                 var c = str[index];
-                if (c == '+') c = ' ';
 
-                if ("!'()*: ".Contains(c))
+                if ("!'()*:".Contains(c))
                 {
                     sb.Append(str[encodedAmount..index]);
                     sb.Append('%');
@@ -29,6 +28,9 @@ namespace ttrpg.server.Tools
             return sb.ToString();
         }
         public static string Decode(string str)
-            => HttpUtility.UrlDecode(str);
+            => DecodeControllerArg(HttpUtility.UrlDecode(str));
+        public static string DecodeControllerArg(string str) => str
+            .Replace('+', ' ')
+        ;
     }
 }
