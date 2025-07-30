@@ -1,4 +1,4 @@
-import "./style.css"
+import "./page.module.css"
 import type { Metadata } from "next";
 
 export default function SkillArticle() {
