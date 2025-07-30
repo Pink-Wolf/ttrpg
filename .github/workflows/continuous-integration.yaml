@@ -4,7 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/continuous-integration.yaml'
-      - 'TTRPGDocs/**'
+      - 'TTRPGDocs/ttrpg.server/**'
+      - 'TTRPGDocs/ttrpg.server.test/**'
 jobs:
   dotnet:
     name: .Net Tests
