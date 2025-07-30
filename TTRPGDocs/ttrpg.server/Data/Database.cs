@@ -57,8 +57,8 @@ namespace ttrpg.server.Data
             }
             for (int i = 0; i < results.Length; ++i)
             {
-                var article = await (Task<string>)results[i];
-                results[i] = $"\"{URIEncoder.Encode(names[i])}\": {article}";
+                var destiny = await (Task<string>)results[i];
+                results[i] = $"\"{URIEncoder.Encode(names[i])}\": {destiny}";
             }
             return $"{{\n{string.Join(",\n", results)}\n}}";
         }

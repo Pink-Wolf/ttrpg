@@ -12,7 +12,7 @@ namespace ttrpg.server.Controllers
 
         [HttpGet("{path}")]
         [ProducesResponseType(200), ProducesResponseType(404)]
-        public async Task<ActionResult<string>> GetArticle(string path)
+        public async Task<ActionResult<string>> GetDestiny(string path)
         {
             path = URIEncoder.DecodeControllerArg(path);
             var result = await data.GetDestinyFast(path);
@@ -22,7 +22,7 @@ namespace ttrpg.server.Controllers
 
         [HttpGet("")]
         [ProducesResponseType(200)]
-        public Task<string> GetArticles()
+        public Task<string> GetAllDestinies()
             => data.GetAllDestiniesFast();
     }
 }
