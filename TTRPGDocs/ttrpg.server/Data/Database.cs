@@ -58,7 +58,7 @@ namespace ttrpg.server.Data
             for (int i = 0; i < results.Length; ++i)
             {
                 var destiny = await (Task<string>)results[i];
-                results[i] = $"\"{names[i]}\": {destiny}";
+                results[i] = $"\"{URIEncoder.Encode(names[i])}\": {destiny}";
             }
             return $"{{\n{string.Join(",\n", results)}\n}}";
         }
@@ -80,7 +80,7 @@ namespace ttrpg.server.Data
                 results[i] = await (Task<Destiny>)results[i];
             }
             return names
-                .Zip(results, (key, value) => KeyValuePair.Create(key, (Destiny)value))
+                .Zip(results, (key, value) => KeyValuePair.Create(URIEncoder.Encode(key), (Destiny)value))
                 .ToDictionary()
             ;
         }
