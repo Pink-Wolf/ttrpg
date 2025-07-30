@@ -14,6 +14,7 @@ export function betterDecodeURIComponent(str: string): string {
 export function encodePageParameter(str: string): string {
     return (process.env.GENERATE_STATIC_PARAMS_AUTO_ENCODES === "1")
         ? str
+            .replace(/ /g, `+`)
         : betterEncodeURIComponent(str)
 }
 export function decodePageParameter(str: string): string {
