@@ -13,7 +13,7 @@ export default function DiceArticle() {
         </p>
 
         <p>
-            When a Player makes a choice that is sacrificial, that is one that helps others but harms their character, the Game Master may award their character a virtue point. <br />
+            When a Player makes a sacrificial choice, that is one that helps others but harms their character, the Game Master may award their character a virtue point. <br />
             Before the outcome of an action is finished being narrated and the play moves along, a Player may use their character&apos;s virtue or vice points to reroll the dice, taking the new rolled value if they so wish. <br />
             Players may not use virtue points on vice actions, nor vice points on non-vice actions. <br />
             A character may not use vice or virtue points to reroll a dice already rerolled by using a vice or virtue point. <br />
@@ -33,10 +33,15 @@ export default function DiceArticle() {
         </p>
 
         <p>
-            The specific consequence or bonus applying to an action is up to the Game Master.
-            The Game Master may decide on none despite a high or low roll (if none makes sense for the situation; though a Game Master should consider not asking for a roll then).
+            The specific consequence or bonus applying to an action is up to the Game Master, and they may decide that none makes sense for the action. <br />
             Typically, actions have listed consequences or bonuses; A Game Master should almost always use these, especially during combat.
+            Otherwise, the following guidelines can be used:
         </p>
+        <ul>
+            <li>Minor consequences usually allows the action to succeed partly (at around 50% to 75%).</li>
+            <li>Medium consequences negates the action and stops the character from just trying again (by for example introducing a problem the character has to deal with first).</li>
+            <li>Major consequences negates the action and pushes the character away from their desired goal by a magnitude equivalent to the action.</li>
+        </ul>
     </article>)
 }
 
