@@ -13,6 +13,14 @@ export default function DiceArticle() {
         </p>
 
         <p>
+            When a Player makes a choice that is sacrificial, that is one that helps others but harms their character, the Game Master may award their character a virtue point. <br />
+            Before the outcome of an action is finished being narrated and the play moves along, a Player may use their character&apos;s virtue or vice points to reroll the dice, taking the new rolled value if they so wish. <br />
+            Players may not use virtue points on vice actions, nor vice points on non-vice actions. <br />
+            A character may not use vice or virtue points to reroll a dice already rerolled by using a vice or virtue point. <br />
+            If a character has 3 virtue and vice points, then they cannot be awarded another point. At the start of a session, all Player characters are awarded a vice point, and then a virtue point. <br />
+        </p>
+
+        <p>
             A character may chose to use a skill they have to do the action (if the Game Master deems it appropriate); if no skill is used, the Game Master choses an attribute to use instead. <br />
             After rolling the dice, add the character&apos;s score in the used skill/attribute to the rolled value. <br />
             The action may have various other bonuses or penalties that one should also add to the rolled value. <br />
