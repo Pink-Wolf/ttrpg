@@ -30,7 +30,7 @@ export default function SkillArticle() {
                     </tr>
                     <tr>
                         <th>Heart</th>
-                        <td>The mental health, religious knowledge, and empathy of a character.</td>
+                        <td>The charms, religious knowledge, and empathy of a character.</td>
                     </tr>
                 </tbody>
             </table>
@@ -93,7 +93,7 @@ export default function SkillArticle() {
                         <td>Crafting</td>
                         <td>Brewing</td>
                         <td>Arcane</td>
-                        <td>Healing</td>
+                        <td>Storytelling</td>
                     </tr>
                 </tbody>
             </table>
@@ -111,7 +111,7 @@ export default function SkillArticle() {
                     <h4>Fortitude</h4>
                     The ability of the body to resist attacks, such as poisons, viruses, and alchohol.
                     <h4>Body</h4>
-                    Understanding of the body helps primarily when healing physical injuries.
+                    Understanding of the body is primarily used when healing physical injuries.
                     <h4>Awareness</h4>
                     A constant sense of what is going on, especially from the corner of one&apos;s eye. This awareness helps avoid surprises like an ambush or trap.
                     <h4>Crafting</h4>
@@ -164,8 +164,8 @@ export default function SkillArticle() {
                     Whether it be the local customs, people&apos;s likely reaction, or the gods and their influence over communities, people are a complex field of study.
                     <h4>Insight</h4>
                     Understanding the words unspoken, or the intentions hidden away, insight is the opponent of other&apos;s trickery, whether intentional or not.
-                    <h4>Healing</h4>
-                    While healing includes the use of medicine to treat physical injuries, this skill is just as much about the treatment of mental injuries.
+                    <h4>Storytelling</h4>
+                    To craft stories, songs, myths and poems; to control people&apos;s emotion with nothing but words; it is hard to believe it is not arcane magic.
                 </section>
             </div>
         </section>
