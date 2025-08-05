@@ -7,7 +7,7 @@ export default function SkillArticle() {
         <p>Attributes are the broad capabilities and natural talents of a character, whereas skills are the specific areas a character has trained.</p>
 
         <section>
-            <p> There are 5 attributes: </p>
+            <p> There are 4 attributes: </p>
             <table id="attribute-table">
                 <thead>
                     <tr>
