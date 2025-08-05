@@ -4,14 +4,14 @@ import { MDXRemote } from "next-mdx-remote-client/rsc";
 
 export default interface Ability {
     name: string;
+    description: string;
     frequency?: string;
     actions?: string;
-    rection?: string;
-    target: string;
+    reaction?: string;
+    target?: string;
     skill?: string;
     bonus?: string;
     consequences?: AbilityConsequence;
-    description: string;
 }
 export interface AbilityConsequence {
     minor: string;

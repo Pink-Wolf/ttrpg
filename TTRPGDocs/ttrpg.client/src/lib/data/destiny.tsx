@@ -53,7 +53,7 @@ export function getAllDestinies(): Promise<Record<string, Destiny>> {
 }
 export async function getDestiny(name: string): Promise<Destiny> {
     const encodedName = betterEncodeURIComponent(name)
-    if (process.env.CACHE_SERVER_DATA == `1`) { // just get all destinies once, if they are cached anyways
+    if (process.env.CACHE_SERVER_DATA == `1`) { // just get all at once, if they are cached anyways
         const dataContainer = await getAllDestinies()
         const data = dataContainer[encodedName]
         if (data === undefined) throw new Error(

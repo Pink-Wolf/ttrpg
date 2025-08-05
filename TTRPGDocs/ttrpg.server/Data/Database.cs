@@ -8,15 +8,16 @@ namespace ttrpg.server.Data
     {
         const string dataPath = "Data/";
         const string destinyPath = $"{dataPath}destiny/";
+        const string originPath = $"{dataPath}origin/";
 
         public static readonly JsonSerializerOptions jsonOptions = new()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };
 
-        public async Task<string?> GetDestinyFast(string name)
+        private async Task<string?> GetFast(string path, string name)
         {
-            var path = $"{destinyPath}{name}.json";
+            path = $"{path}{name}.json";
             if (File.Exists(path) is false) return null;
 
             var json = await File.ReadAllTextAsync(path);
@@ -28,32 +29,32 @@ namespace ttrpg.server.Data
 
             return json;
         }
-        public async Task<Destiny?> GetDestiny(string name)
+        public async Task<T?> Get<T>(string path, string name)
+            where T : class
         {
-            var path = $"{destinyPath}{name}.json";
+            path = $"{path}{name}.json";
             if (File.Exists(path) is false) return null;
 
-            var json = (await JsonSerializer.DeserializeAsync<Destiny>(new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read), jsonOptions))!;
+            var json = (await JsonSerializer.DeserializeAsync<T>(new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read), jsonOptions))!;
 
             name = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(name);
-            json.Name = name;
+            typeof(T).GetProperty("Name")!.SetValue(json, name);
 
             return json;
         }
 
-
-        public async Task<string> GetAllDestiniesFast()
+        public async Task<string> GetAllFast(string path)
         {
-            var names = Directory.GetFiles(destinyPath, "*.json", SearchOption.AllDirectories);
+            var names = Directory.GetFiles(path, "*.json", SearchOption.AllDirectories);
             for (int i = 0; i < names.Length; ++i)
             {
-                names[i] = names[i][destinyPath.Length..^5];
+                names[i] = names[i][path.Length..^5];
             }
 
             var results = new object[names.Length];
             for (int i = 0; i < results.Length; ++i)
             {
-                results[i] = GetDestinyFast(names[i]);
+                results[i] = GetFast(path, names[i]);
             }
             for (int i = 0; i < results.Length; ++i)
             {
@@ -62,27 +63,38 @@ namespace ttrpg.server.Data
             }
             return $"{{\n{string.Join(",\n", results)}\n}}";
         }
-        public async Task<IDictionary<string, Destiny>> GetAllDestinies()
+        public async Task<IDictionary<string, T>> GetAll<T>(string path)
+            where T : class
         {
-            var names = Directory.GetFiles(destinyPath, "*.json", SearchOption.AllDirectories);
+            var names = Directory.GetFiles(path, "*.json", SearchOption.AllDirectories);
             for (int i = 0; i < names.Length; ++i)
             {
-                names[i] = names[i][destinyPath.Length..^5];
+                names[i] = names[i][path.Length..^5];
             }
 
             var results = new object[names.Length];
             for (int i = 0; i < names.Length; ++i)
             {
-                results[i] = GetDestiny(names[i]);
+                results[i] = Get<T>(path, names[i]);
             }
             for (int i = 0; i < names.Length; ++i)
             {
-                results[i] = await (Task<Destiny>)results[i];
+                results[i] = await (Task<T>)results[i];
             }
             return names
-                .Zip(results, (key, value) => KeyValuePair.Create(URIEncoder.Encode(key), (Destiny)value))
+                .Zip(results, (key, value) => KeyValuePair.Create(URIEncoder.Encode(key), (T)value))
                 .ToDictionary()
             ;
         }
+
+        public Task<string?> GetDestinyFast(string name) => GetFast(destinyPath, name);
+        public Task<Destiny?> GetDestiny(string name) => Get<Destiny>(destinyPath, name);
+        public Task<string> GetAllDestiniesFast() => GetAllFast(destinyPath);
+        public Task<IDictionary<string, Destiny>> GetAllDestinies() => GetAll<Destiny>(destinyPath);
+        
+        public Task<string?> GetOriginFast(string name) => GetFast(originPath, name);
+        public Task<Origin?> GetOrigin(string name) => Get<Origin>(originPath, name);
+        public Task<string> GetAllOriginsFast() => GetAllFast(originPath);
+        public Task<IDictionary<string, Origin>> GetAllOrigins() => GetAll<Origin>(originPath);
     }
 }

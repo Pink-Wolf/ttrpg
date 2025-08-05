@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getAllDestinies } from "@/data/destiny";
 import NavigationMenu from "@/NavigationMenu";
 import getArticleNames from "./article/getArticleNames";
+import { getAllOrigins } from "@/data/origin";
 
 export const dynamic = 'force-static'
 
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
 
 async function HeaderMenu() {
     const articles = getArticleNames()
-    const destinies = await getAllDestinies()
+    const destinies = getAllDestinies()
+    const origins = getAllOrigins()
 
     return (<NavigationMenu items={
         [
@@ -29,10 +31,20 @@ async function HeaderMenu() {
             {
                 name: "Destinies",
                 pathName: "/destiny",
-                children: Object.entries(destinies).map(([destinyPath, destiny]) => {
+                children: Object.entries(await destinies).map(([path, item]) => {
                     return {
-                        name: destiny.name,
-                        pathName: destinyPath,
+                        name: item.name,
+                        pathName: path,
+                    }
+                }),
+            },
+            {
+                name: "Origins",
+                pathName: "/origin",
+                children: Object.entries(await origins).map(([path, item]) => {
+                    return {
+                        name: item.name,
+                        pathName: path,
                     }
                 }),
             },

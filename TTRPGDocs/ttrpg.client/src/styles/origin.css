@@ -1,0 +1,22 @@
+#origin-attribute-table {
+    border: 0;
+}
+
+    #origin-attribute-table > thead {
+        display: none;
+    }
+
+    #origin-attribute-table > tbody {
+    }
+
+        #origin-attribute-table > tbody > tr {
+            display: inline-block;
+            margin: .5em;
+        }
+
+            #origin-attribute-table > tbody > tr > * {
+                display: block;
+                width: 15em;
+                text-wrap: balance;
+                text-align: center;
+            }

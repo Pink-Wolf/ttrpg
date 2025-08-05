@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { getAllDestinies } from "@/data/destiny";
 
-export default async function ArticlePage() {
+export default async function DestinyPage() {
     const destinies = await getAllDestinies()
 
     return (<Fragment>

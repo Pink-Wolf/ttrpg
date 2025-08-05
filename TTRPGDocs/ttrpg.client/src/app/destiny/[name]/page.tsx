@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import { getDestiny, DestinyViewer, getAllDestinies } from "@/data/destiny"
 import { decodePageParameter, encodePageParameter, betterDecodeURIComponent } from "@/betterEncodeURIComponent";
 
-export default async function DestinyPage({ params }: { params: Promise<{ destinyName: string }> }) {
+export default async function DestinyPage({ params }: { params: Promise<{ name: string }> }) {
     const args = await params
-    if (args.destinyName === "%5BdestinyName%5D") return <div />
-    const destinyName = decodePageParameter(args.destinyName)
+    if (args.name === "%5Bname%5D") return <div />
+    const name = decodePageParameter(args.name)
 
-    const data = await getDestiny(destinyName)
+    const data = await getDestiny(name)
     return <DestinyViewer data={data} />
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ destinyName: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
     const args = await params
-    const destinyName = decodePageParameter(args.destinyName)
+    const name = decodePageParameter(args.name)
 
-    const data = await getDestiny(destinyName)
+    const data = await getDestiny(name)
     return {
         title: data.name
     }
@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 
     return Object.keys(dataCollection).map(name => {
         const result = {
-            destinyName: encodePageParameter(betterDecodeURIComponent(name))
+            name: encodePageParameter(betterDecodeURIComponent(name))
         }
         return result
     })

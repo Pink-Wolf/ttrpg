@@ -22,5 +22,14 @@ namespace ttrpg.server.test
 
             Assert.That(actual, Is.EquivalentTo(expected));
         }
+
+        [Test]
+        public async Task GetAllOriginsFast()
+        {
+            var actual = JsonSerializer.Deserialize<IDictionary<string, Origin>>(await database.GetAllOriginsFast(), Database.jsonOptions);
+            var expected = await database.GetAllOrigins();
+
+            Assert.That(actual, Is.EquivalentTo(expected));
+        }
     }
 }

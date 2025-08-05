@@ -1,6 +1,10 @@
 import "./page.module.css"
 import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: "Dice",
+};
+
 export default function SkillArticle() {
     return (<article>
         <h1>Attributes and Skills</h1>
@@ -171,7 +175,3 @@ export default function SkillArticle() {
         </section>
     </article>)
 }
-
-export const metadata: Metadata = {
-    title: "Dice",
-};
