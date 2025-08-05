@@ -47,12 +47,16 @@ ul, ol {
     margin: 0 0 0 0;
 }
 
-section {
-    margin: .5em 0 0 0;
+*:not(h1, h2, h3, h4, h5, h6) + section {
+    margin: 1.5em 0 0 0;
 }
 
 p {
     margin-top: 0;
+    margin-bottom: 0;
+}
+p + p {
+    margin-top: 1em;
 }
 
 blockquote {

@@ -1,0 +1,42 @@
+{
+  "description": "A scholar of the arcane, wizards uses magic to wreak havoc on their enemies, and to provide utility for their allies.",
+  "playstyles": [
+    {
+      "title": "In combat",
+      "description": "wizards rely on a limited number of powerful or situational spells. They must determine the right moment for using these spells."
+    },
+    {
+      "title": "During diplomacy",
+      "description": "wizards uses reasoning to explain their side, and magic to command respect."
+    },
+    {
+      "title": "Against obstacles",
+      "description": "wizards finds creative ways of using their spells, or provides their allies with some magical help."
+    }
+  ],
+  "abilities": {
+    "1": [
+      {
+        "name": "Elemental Spray",
+        "frequency": "2 per day",
+        "action-cost": "2",
+        "target": "All within a 2 tile spray",
+        "skill": "Arcane",
+        "bonus": "Deal an additional 2 damage per bonus.",
+        "consequences": {
+          "minor": "Deal only 2 damage.",
+          "medium": "Deal only 1 damage.",
+          "major": "Deal no damage."
+        },
+        "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets' resistance from the following list:\n- Poison: Resisted by fortitude.\n- Fire: Resisted by dodge.\n- Arcane Energy: Resisted by warding.\n\nYou roll for each target individually."
+      },
+      {
+        "name": "Prestidigitation",
+        "frequency": "1/level per day",
+        "reaction": "The target rolls to do an action",
+        "target": "You or someone within melee range",
+        "description": "You magically enhance a character, making them perform unnaturally well.\nAdd your Arcane level to the rolled value."
+      }
+    ]
+  }
+}

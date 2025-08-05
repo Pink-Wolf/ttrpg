@@ -1,0 +1,12 @@
+.ability-viewer > table {
+    max-width: 30em;
+}
+
+    .ability-viewer > table > thead > tr > th {
+        font-size: 1.25em;
+    }
+
+    .ability-viewer > table > * > tr > th {
+        width: 7.5em;
+        text-align: left;
+    }

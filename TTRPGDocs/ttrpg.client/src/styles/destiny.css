@@ -1,0 +1,12 @@
+.destiny-playstyle-viewer {
+    max-width: 30em;
+    float: inline-end;
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: var(--primary);
+    padding: .5em;
+}
+
+.destiny-ability-viewer > section {
+    margin-left: 1em;
+}
