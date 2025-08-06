@@ -4,6 +4,8 @@ import { getAllOrigins } from "./data/origin"
 import { JSX } from "react"
 import { getAttributeNames } from "./data/attributes"
 import getSkillNames from "./data/skills"
+import { getDamageTypes } from "./data/damageTypes"
+import betterEncodeURIComponent from "./betterEncodeURIComponent"
 
 export default function Keyword({ children }: { children: string | string[] }) {
     if (typeof (children) !== "string") children = children.join()
@@ -15,13 +17,16 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
     const destinies = getAllDestinies()
     const origins = getAllOrigins()
 
-    Object.entries(await destinies).map(([path, item]) => [`/destiny/${path}`, item.name])
+    const entries = Object.entries(await destinies).map(([path, item]) => [`/destiny/${path}`, item.name])
         .concat(Object.entries(await origins).map(([path, item]) => [`/origin/${path}`, item.name]))
-        .concat(getAttributeNames().map(item => [`/article/attributes+and+skills#${item.toLowerCase()}`, item]))
-        .concat(getSkillNames().map(item => [`/article/attributes+and+skills#${item.toLowerCase() }`, item]))
-        .forEach(([path, name]) => {
-            record[name] = <Link href={path} className="keyword">{name}</Link>
-        })
+        .concat(getAttributeNames().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item)}`, item]))
+        .concat(getSkillNames().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item)}`, item]))
+        .concat(getDamageTypes().map(item => [`/article/damage+types#${betterEncodeURIComponent(item)}`, item]))
+
+    entries.forEach(([path, name]) => {
+        const field = name.replace(' ', '')
+        record[field] = <Link href={path} className="keyword">{name}</Link>
+    })
 
     return record
 }

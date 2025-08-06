@@ -28,7 +28,7 @@
           "medium": "Deal only 1 damage.",
           "major": "Deal no damage."
         },
-        "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets' resistance from the following list:\n- {Poison}: Resisted by {Fortitude}.\n- {Fire}: Resisted by {Dodge}.\n- {Arcane Energy}: Resisted by {Warding}.\n\nYou roll for each target individually."
+        "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets' resistance from the following list:\n- {Poison}: Resisted by {Fortitude}.\n- {Fire}: Resisted by {Dodge}.\n- {ArcaneEnergy}: Resisted by {Warding}.\n\nYou roll for each target individually."
       },
       {
         "name": "Prestidigitation",

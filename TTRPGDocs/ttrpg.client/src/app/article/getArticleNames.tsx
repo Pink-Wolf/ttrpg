@@ -3,5 +3,6 @@ export default function getArticleNames(): string[] {
         "Attributes and Skills",
         "Dice",
         "Player Character",
+        "Damage Types",
     ]
 }
