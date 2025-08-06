@@ -1,5 +1,6 @@
 import "@/styles/ability.css"
 import FormattedText, { toTitleCase, upperCaseFirstLetter } from "@/formatter";
+import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 
 export default interface Ability {
     name: string;
@@ -26,7 +27,7 @@ export function AbilityViewer({ data }: { data: Ability }) {
     })
     const consequences = ability.consequences
 
-    return (<figure className="ability-viewer">
+    return (<figure className="ability-viewer" id={betterEncodeURIComponent(ability.name)}>
         <table>
             <thead>
                 <tr>
@@ -48,12 +49,9 @@ export function AbilityViewer({ data }: { data: Ability }) {
                         {consequences === undefined
                             ? []
                             : Object.keys(consequences).map(severity => {
-                                return (<p key={severity}>
-                                    <b>{upperCaseFirstLetter(severity)}: </b>
-                                    <FormattedText>
-                                        {consequences[severity as keyof AbilityConsequence]}
-                                    </FormattedText>
-                                </p>)
+                                return (<FormattedText key={severity}>
+                                    **{upperCaseFirstLetter(severity)}:** {consequences[severity as keyof AbilityConsequence]}
+                                </FormattedText>)
                             })
                         }
                     </td>

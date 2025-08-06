@@ -5,7 +5,8 @@ import { JSX } from "react"
 import { getAttributeNames } from "./data/attributes"
 import getSkillNames from "./data/skills"
 
-export default function Keyword({ children }: { children: string }) {
+export default function Keyword({ children }: { children: string | string[] }) {
+    if (typeof (children) !== "string") children = children.join()
     return GetKeywordRecord()[children]
 }
 

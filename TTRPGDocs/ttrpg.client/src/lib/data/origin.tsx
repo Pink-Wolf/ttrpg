@@ -65,7 +65,7 @@ function InnerOriginViewer(origin: Origin) {
             As part of this origin, choose one of the following suborigins to get:
             <ul className="origin-viewer">
                 {(origin.suborigins ?? []).map(suborigin => {
-                    return <li key={suborigin.name}>{InnerOriginViewer(suborigin)}</li>
+                    return <li key={suborigin.name} id={betterEncodeURIComponent(suborigin.name)}>{InnerOriginViewer(suborigin)}</li>
                 })}
             </ul>
         </section>

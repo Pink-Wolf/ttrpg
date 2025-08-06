@@ -9,9 +9,11 @@ export function upperCaseFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-export default async function FormattedText({ children }: { children: string }): Promise<JSX.Element> {
+export default async function FormattedText({ children }: { children: string | string[] }): Promise<JSX.Element> {
     const options = {
         scope: GetKeywordRecord()
     }
+    if (typeof(children) !== "string") children = children.join()
+
     return (<MDXRemote source={children} options={options} />)
 }
