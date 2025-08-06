@@ -2,11 +2,9 @@ import "@/styles/origin.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData } from "./getData";
 import Ability, { AbilityViewer } from "./ability";
-import { MDXRemote } from "next-mdx-remote-client/rsc";
 import { Fragment } from "react";
-import { toTitleCase } from "@/formatter";
-
-const ORIGIN_URL_PATH = `origin/`
+import FormattedText, { toTitleCase } from "@/formatter";
+import Keyword from "../Keyword";
 
 export default interface Origin {
     name: string;
@@ -20,7 +18,7 @@ export default interface Origin {
 function InnerOriginViewer(origin: Origin) {
     return (<Fragment>
         <h1>{origin.name}</h1>
-        <MDXRemote source={origin.description} />
+        <FormattedText>{origin.description}</FormattedText>
 
         <section hidden={origin.attributes === undefined}>
             Gain the following levels in the denoted attributes:
@@ -34,7 +32,7 @@ function InnerOriginViewer(origin: Origin) {
                 <tbody>
                     {Object.entries(origin.attributes ?? {}).map(([attribute, level]) => {
                         return (<tr key={attribute}>
-                            <th>{toTitleCase(attribute)}</th>
+                            <th><Keyword>{toTitleCase(attribute)}</Keyword></th>
                             <td>{level}</td>
                         </tr>)
                     })}
@@ -47,7 +45,7 @@ function InnerOriginViewer(origin: Origin) {
             <ul>
                 {Object.entries(origin.skills ?? {}).map(([skill, level]) => {
                     return (<li key={skill}>
-                        <b>{toTitleCase(skill)}</b>: {level}
+                        <b><Keyword>{toTitleCase(skill)}</Keyword></b>: {level}
                     </li>)
                 })}
             </ul>
@@ -80,7 +78,7 @@ export function OriginViewer({ data }: { data: Origin }) {
 }
 
 export function getAllOrigins(): Promise<Record<string, Origin>> {
-    return getData<Record<string, Origin>>(ORIGIN_URL_PATH)
+    return getData<Record<string, Origin>>("origin/")
 }
 export async function getOrigin(name: string): Promise<Origin> {
     const encodedName = betterEncodeURIComponent(name)
@@ -92,5 +90,5 @@ export async function getOrigin(name: string): Promise<Origin> {
         )
         return data
     }
-    else return await getData(ORIGIN_URL_PATH + encodedName)
+    else return await getData("origin/" + encodedName)
 }

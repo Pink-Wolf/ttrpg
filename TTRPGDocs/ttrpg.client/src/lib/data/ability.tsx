@@ -1,6 +1,5 @@
 import "@/styles/ability.css"
-import { toTitleCase, upperCaseFirstLetter } from "../formatter";
-import { MDXRemote } from "next-mdx-remote-client/rsc";
+import FormattedText, { toTitleCase, upperCaseFirstLetter } from "@/formatter";
 
 export default interface Ability {
     name: string;
@@ -38,7 +37,9 @@ export function AbilityViewer({ data }: { data: Ability }) {
                 {fields.map(field => {
                     return (<tr key={field}>
                         <th>{toTitleCase(field)}</th>
-                        <td>{ability[field as keyof Ability] as string}</td>
+                        <td><FormattedText>
+                            {ability[field as keyof Ability] as string}
+                        </FormattedText></td>
                     </tr>)
                 })}
                 <tr key="consequences" hidden={consequences === undefined}>
@@ -49,7 +50,9 @@ export function AbilityViewer({ data }: { data: Ability }) {
                             : Object.keys(consequences).map(severity => {
                                 return (<p key={severity}>
                                     <b>{upperCaseFirstLetter(severity)}: </b>
-                                    {consequences[severity as keyof AbilityConsequence]}
+                                    <FormattedText>
+                                        {consequences[severity as keyof AbilityConsequence]}
+                                    </FormattedText>
                                 </p>)
                             })
                         }
@@ -57,7 +60,7 @@ export function AbilityViewer({ data }: { data: Ability }) {
                 </tr>
                 <tr key="description">
                     <td colSpan={2}>
-                        <MDXRemote source={ability.description} />
+                        <FormattedText>{ability.description}</FormattedText>
                     </td>
                 </tr>
             </tbody>

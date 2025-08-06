@@ -18,8 +18,8 @@
           "name": "A Play at Emotions",
           "target": "Self",
           "frequency": "1 per day",
-          "reaction": "You roll Heart or a Heart-skill.",
-          "description": "You add your Wits to, but subtract your Heart from, the rolled value."
+          "reaction": "You roll {Heart} or a {Heart}-skill.",
+          "description": "You add your {Wits} to, but subtract your {Heart} from, the rolled value."
         }
       ]
     },
@@ -39,7 +39,7 @@
         {
           "name": "Wooden Skin",
           "reaction": "A creature performs an action only targeting you.",
-          "description": "Your body is but a part of nature.\nIf the action uses Body, then the acting creature may use Nature instead."
+          "description": "Your body is but a part of nature.\nIf the action uses {Body}, then the acting creature may use {Nature} instead."
         }
       ]
     }

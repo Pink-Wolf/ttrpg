@@ -102,3 +102,8 @@ input:not([type]), input[type=text] {
     padding-left: .6em;
     border-left: .15em solid;
 }
+
+.keyword {
+    color: inherit;
+    text-decoration: inherit;
+}

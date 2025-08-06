@@ -2,9 +2,7 @@ import "@/styles/destiny.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData } from "./getData";
 import Ability, { AbilityViewer } from "./ability";
-import { MDXRemote } from "next-mdx-remote-client/rsc";
-
-const DESTINY_URL_PATH = `destiny/`
+import FormattedText from "@/formatter";
 
 export default interface Destiny {
     name: string;
@@ -22,11 +20,11 @@ export function DestinyViewer({ data }: { data: Destiny }) {
 
     return (<article className="destiny-viewer">
         <h1>{destiny.name}</h1>
-        <MDXRemote source={destiny.description} />
+        <FormattedText>{destiny.description}</FormattedText>
         <figure className="destiny-playstyle-viewer">
             {destiny.playstyles.map(playstyle => {
                 return (<div key={playstyle.title}>
-                    <b>{playstyle.title}</b>, {playstyle.description}
+                    <b>{playstyle.title}</b>, <FormattedText>{playstyle.description}</FormattedText>
                 </div>)
             })}
         </figure>
@@ -49,7 +47,7 @@ export function DestinyViewer({ data }: { data: Destiny }) {
 }
 
 export function getAllDestinies(): Promise<Record<string, Destiny>> {
-    return getData<Record<string, Destiny>>(DESTINY_URL_PATH)
+    return getData<Record<string, Destiny>>("destiny/")
 }
 export async function getDestiny(name: string): Promise<Destiny> {
     const encodedName = betterEncodeURIComponent(name)
@@ -61,5 +59,5 @@ export async function getDestiny(name: string): Promise<Destiny> {
         )
         return data
     }
-    else return await getData(DESTINY_URL_PATH + encodedName)
+    else return await getData("destiny/" + encodedName)
 }
