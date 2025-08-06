@@ -1,0 +1,11 @@
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    background: var(--secondaryBackground);
+    position: absolute;
+    transition: all .25s ease;
+}
+    *:hover > .tooltip, .tooltip:hover {
+        visibility: visible;
+        opacity: 1;
+    }

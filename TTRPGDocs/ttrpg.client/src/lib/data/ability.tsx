@@ -4,6 +4,7 @@ import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 
 export default interface Ability {
     name: string;
+    summary: string;
     description: string;
     frequency?: string;
     actions?: string;

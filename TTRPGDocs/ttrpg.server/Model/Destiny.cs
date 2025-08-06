@@ -5,15 +5,15 @@ namespace ttrpg.server.Model
     public class Destiny : IEquatable<Destiny>
     {
         public string Name { get; set; }
+        public string Summary { get; set; }
         public string Description { get; set; }
         public List<DestinyPlaystyle> Playstyles { get; set; }
         public Dictionary<string, List<Ability>> Abilities { get; set; }
 
-        public override int GetHashCode() => HashCode.Combine(Name
-            , Description
-        );
+        public override int GetHashCode() => Name.GetHashCode();
         public bool Equals(Destiny? other) => other is not null
             && Name == other.Name
+            && Summary == other.Summary
             && Description == other.Description
         ;
         public override bool Equals(object? obj) => obj is Destiny other

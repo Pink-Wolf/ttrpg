@@ -8,6 +8,7 @@ import Keyword from "../Keyword";
 
 export default interface Origin {
     name: string;
+    summary: string;
     description: string;
     attributes?: Map<string, string>;
     skills?: Map<string, string>;

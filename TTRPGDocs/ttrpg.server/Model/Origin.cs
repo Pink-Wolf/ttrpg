@@ -5,20 +5,17 @@ namespace ttrpg.server.Model
     public class Origin : IEquatable<Origin>
     {
         public string Name { get; set; }
+        public string Summary { get; set; }
         public string Description { get; set; }
         public Dictionary<string, string>? Attributes { get; set; }
         public Dictionary<string, string>? Skills { get; set; }
         public List<Ability>? Abilities { get; set; }
         public List<Origin>? Suborigins { get; set; }
 
-        public override int GetHashCode() => HashCode.Combine(Name
-            , Description
-            , Attributes
-            , Skills
-            , Abilities
-        );
+        public override int GetHashCode() => Name.GetHashCode();
         public bool Equals(Origin? other) => other is not null
             && Name == other.Name
+            && Summary == other.Summary
             && Description == other.Description
             && Attributes == other.Attributes
             && Skills == other.Skills

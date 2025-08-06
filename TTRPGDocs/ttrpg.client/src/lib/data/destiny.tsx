@@ -6,6 +6,7 @@ import FormattedText from "@/formatter";
 
 export default interface Destiny {
     name: string;
+    summary: string;
     description: string;
     playstyles: DestinyPlaystyle[];
     abilities: Map<string, Ability[]>;
