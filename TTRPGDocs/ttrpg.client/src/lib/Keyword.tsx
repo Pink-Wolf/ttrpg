@@ -8,7 +8,8 @@ import { getDamageTypes } from "./data/damageTypes"
 import betterEncodeURIComponent from "./betterEncodeURIComponent"
 
 export default function Keyword({ children }: { children: string | string[] }) {
-    if (typeof (children) !== "string") children = children.join()
+    if (typeof (children) !== "string") children = children.join('')
+
     return GetKeywordRecord()[children]
 }
 

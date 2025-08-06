@@ -13,7 +13,7 @@ export default async function FormattedText({ children }: { children: string | s
     const options = {
         scope: GetKeywordRecord()
     }
-    if (typeof(children) !== "string") children = children.join()
+    if (typeof(children) !== "string") children = children.join('')
 
     return (<MDXRemote source={children} options={options} />)
 }
