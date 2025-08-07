@@ -9,11 +9,16 @@ export function upperCaseFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-export default async function FormattedText({ children }: { children: string | string[] }): Promise<JSX.Element> {
+export default function FormattedText({ children }: { children: string | string[] }): JSX.Element {
+    if (typeof(children) !== "string") children = children.join('')
+
     const options = {
         scope: GetKeywordRecord()
     }
-    if (typeof(children) !== "string") children = children.join('')
-
     return (<MDXRemote source={children} options={options} />)
+}
+export function InlineFormattedText({ children }: { children: string | string[] }): string {
+    if (typeof (children) !== "string") children = children.join('')
+
+    return children.replace(/[\{\}]/g, '')
 }

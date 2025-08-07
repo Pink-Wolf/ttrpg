@@ -2,15 +2,16 @@ import "@/styles/Keyword.css"
 import Link from "next/link"
 import { getAllDestinies } from "./data/destiny"
 import { getAllOrigins } from "./data/origin"
-import { Fragment, JSX, ReactNode } from "react"
+import { Fragment, JSX } from "react"
 import { GetAttributes } from "./data/attributes"
 import { GetSkills } from "./data/skills"
 import betterEncodeURIComponent from "./betterEncodeURIComponent"
 import { GetDamageTypes } from "./data/damageTypes"
+import { InlineFormattedText } from "./formatter"
 
-export function Tooltip({ title, children }: { title: string, children: ReactNode }) {
+export function Tooltip({ children }: { children: string }) {
     return (<small className="tooltip">
-        ({children})
+        <InlineFormattedText>({children})</InlineFormattedText>
     </small>)
 }
 
@@ -34,7 +35,7 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
     entries.forEach(([path, name, description]) => {
         const field = name.replace(' ', '')
         record[field] = (<Fragment>
-            <Link href={path} className="keyword">{name}<Tooltip title={name}>{description}</Tooltip></Link>
+            <Link href={path} className="keyword">{name}<Tooltip>{description}</Tooltip></Link>
             
         </Fragment>)
     })
