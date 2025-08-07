@@ -4,6 +4,7 @@
     background: var(--secondaryBackground);
     position: absolute;
     transition: all .25s ease;
+    padding: .25em;
 }
     *:hover > .tooltip, .tooltip:hover {
         visibility: visible;
