@@ -1,5 +1,8 @@
+import { GetAttributes } from "@/data/attributes";
+import { GetSkillCategories, GetSkillsFromAttribute } from "@/data/skills";
 import "./page.module.css"
 import type { Metadata } from "next";
+import { Fragment } from "react";
 
 export const metadata: Metadata = {
     title: "Skills",
@@ -20,22 +23,12 @@ export default function SkillArticle() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th id="physique">Physique</th>
-                        <td>The physical strength and constitution of a character&apos;s body.</td>
-                    </tr>
-                    <tr>
-                        <th id="wits">Wits</th>
-                        <td>The quick-thinking and dexterity of a character.</td>
-                    </tr>
-                    <tr>
-                        <th id="intellect">Intellect</th>
-                        <td>The scholarly knowledge and reasoning of a character.</td>
-                    </tr>
-                    <tr>
-                        <th id="heart">Heart</th>
-                        <td>The charms, religious knowledge, and empathy of a character.</td>
-                    </tr>
+                    {GetAttributes().map(attribute => {
+                        return (<tr key={attribute.name} id={attribute.name}>
+                            <th>{attribute.name}</th>
+                            <td>{attribute.description}</td>
+                        </tr>)
+                    })}
                 </tbody>
             </table>
         </section>
@@ -50,55 +43,20 @@ export default function SkillArticle() {
                 <thead>
                     <tr>
                         <th>Category</th>
-                        <th>Physique</th>
-                        <th>Wits</th>
-                        <th>Intellect</th>
-                        <th>Heart</th>
+                        {GetAttributes().map(attribute => {
+                            return (<th key={attribute.name}>{attribute.name}</th>)
+                        })}
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>Social</th>
-                        <td>Awe</td>
-                        <td>Trickery</td>
-                        <td>Reason</td>
-                        <td>Charm</td>
-                    </tr>
-                    <tr>
-                        <th>Defense</th>
-                        <td>Fortitude</td>
-                        <td>Dodge</td>
-                        <td>Warding</td>
-                        <td>Will</td>
-                    </tr>
-                    <tr>
-                        <th>Movement</th>
-                        <td>Athletics</td>
-                        <td>Stealth</td>
-                        <td>Navigate</td>
-                        <td>Travel</td>
-                    </tr>
-                    <tr>
-                        <th>Knowledge</th>
-                        <td>Body</td>
-                        <td>Nature</td>
-                        <td>Lore</td>
-                        <td>People</td>
-                    </tr>
-                    <tr>
-                        <th>Perception</th>
-                        <td>Awareness</td>
-                        <td>Find</td>
-                        <td>Study</td>
-                        <td>Insight</td>
-                    </tr>
-                    <tr>
-                        <th>Creation</th>
-                        <td>Crafting</td>
-                        <td>Brewing</td>
-                        <td>Arcane</td>
-                        <td>Storytelling</td>
-                    </tr>
+                    {GetSkillCategories().map(category => {
+                        return (<tr key={category.name} id={category.name}>
+                            <th>{category.name}</th>
+                            {Object.values(category.skills).map(skill => {
+                                return <td key={skill.name}>{skill.name}</td>
+                            })}
+                        </tr>)
+                    })}
                 </tbody>
             </table>
         </section>
@@ -106,71 +64,17 @@ export default function SkillArticle() {
         <section>
             <h2>General Skill Descriptions</h2>
             <div id="skill-detail-section">
-                <section>
-                    <h3>Physique</h3>
-                    <h4 id="awe">Awe</h4>
-                    The apparent strength of the character. This awe can inspire respect, hope in allies, and fear in opponents.
-                    <h4 id="athletics">Athletics</h4>
-                    The ability to perform deeds requiring physical strength or a high stamina.
-                    <h4 id="fortitude">Fortitude</h4>
-                    The ability of the body to resist attacks, such as poisons, viruses, and alchohol.
-                    <h4 id="body">Body</h4>
-                    Understanding of the body is primarily used when healing physical injuries.
-                    <h4 id="awareness">Awareness</h4>
-                    A constant sense of what is going on, especially from the corner of one&apos;s eye. This awareness helps avoid surprises like an ambush or trap.
-                    <h4 id="crafting">Crafting</h4>
-                    By hand or tool, crafting sculptures of stone or weapons of metal, this skill covers the arts requiring a strong hand, especially ones where function matters more than appearance.
-                </section>
-
-                <section>
-                    <h3>Wits</h3>
-                    <h4 id="trickery">Trickery</h4>
-                    The art of deception and manipulation, sharing only what is convenient for the other party to hear.
-                    <h4 id="dodge">Dodge</h4>
-                    The ability to react and move out of the way of danger.
-                    <h4 id="stealth">Stealth</h4>
-                    To remain hidden, or perform unseen actions, stealth keeps your presence and acts unknown to others.
-                    <h4 id="nature">Nature</h4>
-                    Knowledge of plants and animals, of what plants to combine to heal a burn, or where best to scratch a cat, you will hardly find someone who could not use more knowledge of nature.
-                    <h4 id="find">Find</h4>
-                    Whether it be searching a room or following a trail, the ability to find both things of importance and things of profit is a prime skill for treasure hunters.
-                    <h4 id="brewing">Brewing</h4>
-                    Whether cooking a healthy dinner, or combining some berries to make a deadly toxin, brewing is a natural skill often decried as witchcraft.
-                </section>
-
-                <section>
-                    <h3>Intellect</h3>
-                    <h4 id="reason">Reason</h4>
-                    The ability to use logic to explain why you are always right.
-                    <h4 id="warding">Warding</h4>
-                    Perhaps more niche than other forms of protection, this skill resists pure magic and allows magical protection.
-                    <h4 id="navigate">Navigate</h4>
-                    Whether by use of the stars or a map, the ability to locate your current position and orientation.
-                    <h4 id="lore">Lore</h4>
-                    While some may be skilled in specific fields, this skill covers a general and random collection of knowledge spanning history and the fundamental nature of the world.
-                    <h4 id="study">Study</h4>
-                    Whether it be studying books for their knowledge, or experimenting on an object to learn of its function, this skill is invaluable for the scholarly folk.
-                    <h4 id="arcane">Arcane</h4>
-                    The ability to cast spells and enchant tools, as well as understanding these spells and enchantments.
-                </section>
-
-                <section>
-                    <h3>Heart</h3>
-                    <h4 id="charm">Charm</h4>
-                    Whether through words or just one&apos;s general likability,
-                    the ability to control people&apos;s emotions or make them help you out of the goodness of their heart.
-                    <h4 id="will">Will</h4>
-                    The strength of the mind to avoid magical and natural influences.
-                    <h4 id="travel">Travel</h4>
-                    Travelling for days with little going on is surprisingly hard.
-                    To keep track of rations, to keep spirits high, to make sure noone falls behind, there is a lot to do which this skill helps with.
-                    <h4 id="people">People</h4>
-                    Whether it be the local customs, people&apos;s likely reaction, or the gods and their influence over communities, people are a complex field of study.
-                    <h4 id="insight">Insight</h4>
-                    Understanding the words unspoken, or the intentions hidden away, insight is the opponent of other&apos;s trickery, whether intentional or not.
-                    <h4 id="storytelling">Storytelling</h4>
-                    To craft stories, songs, myths and poems; to control people&apos;s emotion with nothing but words; it is hard to believe it is not arcane magic.
-                </section>
+                {GetAttributes().map(attribute => {
+                    return (<section key={attribute.name}>
+                        <h3>{attribute.name}</h3>
+                        {GetSkillsFromAttribute(attribute).map(skill => {
+                            return (<Fragment key={skill.name}>
+                                <h4 id={skill.name}>{skill.name}</h4>
+                                {skill.description}
+                            </Fragment>)
+                        })}
+                    </section>)
+                })}
             </div>
         </section>
     </article>)

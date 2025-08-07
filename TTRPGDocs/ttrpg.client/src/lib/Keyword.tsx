@@ -3,10 +3,10 @@ import Link from "next/link"
 import { getAllDestinies } from "./data/destiny"
 import { getAllOrigins } from "./data/origin"
 import { Fragment, JSX, ReactNode } from "react"
-import { getAttributeSummaries } from "./data/attributes"
-import { getSkillSummaries } from "./data/skills"
+import { GetAttributes } from "./data/attributes"
+import { GetSkills } from "./data/skills"
 import betterEncodeURIComponent from "./betterEncodeURIComponent"
-import GetDamageTypes from "./data/damageTypes"
+import { GetDamageTypes } from "./data/damageTypes"
 
 export function Tooltip({ title, children }: { title: string, children: ReactNode }) {
     return (<small className="tooltip">
@@ -27,9 +27,9 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
 
     const entries = Object.entries(await destinies).map(([path, item]) => [`/destiny/${path}`, item.name, item.summary])
         .concat(Object.entries(await origins).map(([path, item]) => [`/origin/${path}`, item.name, item.summary]))
-        .concat(Object.entries(getAttributeSummaries()).map(([item, summary]) => [`/article/attributes+and+skills#${betterEncodeURIComponent(item)}`, item, `Attribute: ${summary}`]))
-        .concat(Object.entries(getSkillSummaries()).map(([item, summary]) => [`/article/attributes+and+skills#${betterEncodeURIComponent(item)}`, item, summary]))
-        .concat(Object.entries(GetDamageTypes()).map(([, item]) => [`/article/damage+types#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
+        .concat(GetAttributes().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, `Attribute: ${item.description}`]))
+        .concat(GetSkills().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.summary]))
+        .concat(GetDamageTypes().map(item => [`/article/damage+types#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
 
     entries.forEach(([path, name, description]) => {
         const field = name.replace(' ', '')
