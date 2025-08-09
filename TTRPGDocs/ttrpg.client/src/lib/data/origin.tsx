@@ -106,9 +106,7 @@ export function OriginForm({ data, dataSetter, onSubmit }: { data: Origin, dataS
     }
 
     return (<form className="origin-editor" onSubmit={onSubmitMiddlepoint}>
-        <Input<Origin> field="name" setter={dataSetter} value={data} />
-        <Input<Origin> field="summary" setter={dataSetter} value={data} />
-        <Input<Origin> field="description" setter={dataSetter} value={data} type="textarea" />
+        <Input<Origin> setter={dataSetter} value={data} />
         <SubmitInput label="Save" />
     </form>)
 }

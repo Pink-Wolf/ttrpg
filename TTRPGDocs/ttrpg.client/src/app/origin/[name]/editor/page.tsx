@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 }
 
 export async function generateStaticParams() {
-    if (process.env.INCLUDE_EDITOR !== `0`)
+    if (process.env.INCLUDE_EDITOR !== `1`)
         return []
 
     const dataCollection = await getAllOrigins()
