@@ -4,7 +4,6 @@ import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 
 export default interface Ability {
     name: string;
-    summary: string;
     description: string;
     frequency?: string;
     actions?: string;
@@ -20,7 +19,7 @@ export interface AbilityConsequence {
     major: string;
 }
 
-export function AbilityViewer({ data }: { data: Ability }) {
+export async function AbilityViewer({ data }: { data: Ability }) {
     const ability = data
 
     const fields = Object.keys(data).filter(field => {

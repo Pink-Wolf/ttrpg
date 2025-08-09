@@ -15,13 +15,13 @@ export function Tooltip({ children }: { children: string }) {
     </small>)
 }
 
-export default function Keyword({ children }: { children: string | string[] }) {
+export default async function Keyword({ children }: { children: string | string[] }) {
     if (typeof (children) !== "string") children = children.join('')
 
-    return GetKeywordRecord()[children]
+    return (await GetKeywordRecord())[children]
 }
 
-const keywordRecord: Record<string, JSX.Element> = await updateKeywordRecord({})
+const keywordRecord: Promise<Record<string, JSX.Element>> = updateKeywordRecord({})
 async function updateKeywordRecord(record: Record<string, JSX.Element>) {
     const destinies = getAllDestinies()
     const origins = getAllOrigins()
@@ -42,9 +42,9 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
 
     return record
 }
-export function GetKeywordRecord(): Record<string, JSX.Element> {
+export async function GetKeywordRecord(): Promise<Record<string, JSX.Element>> {
     if (process.env.CACHE_SERVER_DATA != `1`) {
-        updateKeywordRecord(keywordRecord)
+        updateKeywordRecord(await keywordRecord)
     }
-    return keywordRecord
+    return await keywordRecord
 }

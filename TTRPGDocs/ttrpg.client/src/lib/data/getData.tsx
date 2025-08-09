@@ -26,3 +26,13 @@ export async function getData<Type>(path: string): Promise<Type> {
     }
     else return getDataNoCache<Type>(path)
 }
+
+export function postData<Type>(path: string, data: Type): Promise<Response> {
+    return fetch(DATABASE_URL + path, {
+        method: `POST`,
+        headers: {
+            'Content-Type': `application/json`,
+        },
+        body: JSON.stringify(data, null, 2),
+    })
+}

@@ -5,7 +5,6 @@ namespace ttrpg.server.Model
     public class Ability : IEquatable<Ability>
     {
         public string Name { get; set; }
-        public string Summary { get; set; }
         public string Description { get; set; }
         public string? Frequency { get; set; }
         public string? Reaction { get; set; }
@@ -17,7 +16,6 @@ namespace ttrpg.server.Model
         public override int GetHashCode() => Name.GetHashCode();
         public bool Equals(Ability? other) => other is not null
             && Name == other.Name
-            && Summary == other.Summary
             && Description == other.Description
             && Frequency == other.Frequency
             && Reaction == other.Reaction

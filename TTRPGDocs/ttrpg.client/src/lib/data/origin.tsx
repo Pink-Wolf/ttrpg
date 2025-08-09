@@ -1,10 +1,11 @@
 import "@/styles/origin.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
-import { getData } from "./getData";
+import { getData, postData } from "./getData";
 import Ability, { AbilityViewer } from "./ability";
-import { Fragment } from "react";
+import { FormEvent, Fragment } from "react";
 import FormattedText, { toTitleCase } from "@/formatter";
-import Keyword from "../Keyword";
+import Keyword from "@/Keyword";
+import Input, { SubmitInput } from "@/Input";
 
 export default interface Origin {
     name: string;
@@ -16,7 +17,7 @@ export default interface Origin {
     suborigins?: Origin[];
 }
 
-function InnerOriginViewer(origin: Origin) {
+async function InnerOriginViewer(origin: Origin) {
     return (<Fragment>
         <h1>{origin.name}</h1>
         <FormattedText>{origin.description}</FormattedText>
@@ -72,7 +73,7 @@ function InnerOriginViewer(origin: Origin) {
         </section>
     </Fragment>)
 }
-export function OriginViewer({ data }: { data: Origin }) {
+export async function OriginViewer({ data }: { data: Origin }) {
     const origin = data
 
     return (<article className="origin-viewer">{InnerOriginViewer(origin)}</article>)
@@ -92,4 +93,22 @@ export async function getOrigin(name: string): Promise<Origin> {
         return data
     }
     else return await getData("origin/" + encodedName)
+}
+export function postOrigin(data: Origin): Promise<Response> {
+    return postData(`origin`, data)
+}
+
+export function OriginForm({ data, dataSetter, onSubmit }: { data: Origin, dataSetter: (newData: Origin) => void, onSubmit: () => void }) {
+    function onSubmitMiddlepoint(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+
+        onSubmit()
+    }
+
+    return (<form className="origin-editor" onSubmit={onSubmitMiddlepoint}>
+        <Input<Origin> field="name" setter={dataSetter} value={data} />
+        <Input<Origin> field="summary" setter={dataSetter} value={data} />
+        <Input<Origin> field="description" setter={dataSetter} value={data} type="textarea" />
+        <SubmitInput label="Save" />
+    </form>)
 }

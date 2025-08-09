@@ -1,4 +1,5 @@
 {
+  "name": "Wizard",
   "summary": "Destiny: A scholar of the arcane.",
   "description": "A scholar of the arcane, wizards uses magic to wreak havoc on their enemies, and to provide utility for their allies.",
   "playstyles": [
@@ -19,8 +20,8 @@
     "1": [
       {
         "name": "Elemental Spray",
+        "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets\u0027 resistance from the following list:\n- {Poison}: Resisted by {Fortitude}.\n- {Fire}: Resisted by {Dodge}.\n- {ArcaneEnergy}: Resisted by {Warding}.\n\nYou roll for each target individually.",
         "frequency": "2 per day",
-        "action-cost": "2",
         "target": "All within a 2 tile spray",
         "skill": "Arcane",
         "bonus": "Deal an additional 2 damage per bonus.",
@@ -28,15 +29,14 @@
           "minor": "Deal only 2 damage.",
           "medium": "Deal only 1 damage.",
           "major": "Deal no damage."
-        },
-        "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets' resistance from the following list:\n- {Poison}: Resisted by {Fortitude}.\n- {Fire}: Resisted by {Dodge}.\n- {ArcaneEnergy}: Resisted by {Warding}.\n\nYou roll for each target individually."
+        }
       },
       {
         "name": "Prestidigitation",
+        "description": "You magically enhance a character, making them perform unnaturally well.\nAdd your {Arcane} level to the rolled value.",
         "frequency": "1/level per day",
         "reaction": "The target rolls to do an action",
-        "target": "You or someone within melee range",
-        "description": "You magically enhance a character, making them perform unnaturally well.\nAdd your {Arcane} level to the rolled value."
+        "target": "You or someone within melee range"
       }
     ]
   }

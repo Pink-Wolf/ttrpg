@@ -1,6 +1,7 @@
 {
+  "name": "Elf",
   "summary": "Origin: The fey-touched, in tune with nature.",
-  "description": "Touched by the strange fey, these people have a strong connection to nature and the arcane, and live without law in places of uncontrolled nature.\n\nWhere most humanoids lives to be around 100, Elves live to be around 1000. Their nature does, however, takes a stark shift around the age of 100 regardless, going from adults to \"ancients\". Elves stop aging like humans at around their 70s, instead growing in height and hardening their skin. As these elves turn a century old, their appearance finalizes into one much alike a grand tree (though their height is rarely changed by more than a dozen centimeters). Indeed, many ancient elves wear clothes adorned with leaves, mimicking a tree's crown and branches.\n\nWhere non-ancient elves are usually filled with the wonder and whimzy of fey, many turn a tranquil and relaxing leaf as they grow into ancienthood. In this way, it is rarer to find ancient elves, despite elves living most of their lives as ancient beings.",
+  "description": "Touched by the strange fey, these people have a strong connection to nature and the arcane, and live without law in places of uncontrolled nature.\n\nWhere most humanoids lives to be around 100, Elves live to be around 1000. Their nature does, however, takes a stark shift around the age of 100 regardless, going from adults to \u0022ancients\u0022. Elves stop aging like humans at around their 70s, instead growing in height and hardening their skin. As these elves turn a century old, their appearance finalizes into one much alike a grand tree (though their height is rarely changed by more than a dozen centimeters). Indeed, many ancient elves wear clothes adorned with leaves, mimicking a tree\u0027s crown and branches.\n\nWhere non-ancient elves are usually filled with the wonder and whimzy of fey, many turn a tranquil and relaxing leaf as they grow into ancienthood. In this way, it is rarer to find ancient elves, despite elves living most of their lives as ancient beings.",
   "suborigins": [
     {
       "name": "Non-ancient",
@@ -18,10 +19,10 @@
       "abilities": [
         {
           "name": "A Play at Emotions",
-          "target": "Self",
+          "description": "You add your {Wits} to, but subtract your {Heart} from, the rolled value.",
           "frequency": "1 per day",
           "reaction": "You roll {Heart} or a {Heart}-skill.",
-          "description": "You add your {Wits} to, but subtract your {Heart} from, the rolled value."
+          "target": "Self"
         }
       ]
     },
@@ -41,8 +42,8 @@
       "abilities": [
         {
           "name": "Wooden Skin",
-          "reaction": "A creature performs an action only targeting you.",
-          "description": "Your body is but a part of nature.\nIf the action uses {Body}, then the acting creature may use {Nature} instead."
+          "description": "Your body is but a part of nature.\nIf the action uses {Body}, then the acting creature may use {Nature} instead.",
+          "reaction": "A creature performs an action only targeting you."
         }
       ]
     }

@@ -16,7 +16,7 @@ export interface DestinyPlaystyle {
     description: string;
 }
 
-export function DestinyViewer({ data }: { data: Destiny }) {
+export async function DestinyViewer({ data }: { data: Destiny }) {
     const destiny = data
 
     return (<article className="destiny-viewer">

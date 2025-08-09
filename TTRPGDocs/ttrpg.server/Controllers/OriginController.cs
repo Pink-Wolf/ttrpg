@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ttrpg.server.Data;
+using ttrpg.server.Model;
 using ttrpg.server.Tools;
 
 namespace ttrpg.server.Controllers
@@ -24,5 +25,13 @@ namespace ttrpg.server.Controllers
         [ProducesResponseType(200)]
         public Task<string> GetAllOrigins()
             => data.GetAllOriginsFast();
+
+        [HttpPost()]
+        [ProducesResponseType(201)]
+        public async Task<ActionResult<Origin>> SetOrigin([FromBody] Origin value)
+        {
+            await data.SetOrigin(value, out var name);
+            return CreatedAtAction(nameof(GetOrigin), new { path = name }, value);
+        }
     }
 }
