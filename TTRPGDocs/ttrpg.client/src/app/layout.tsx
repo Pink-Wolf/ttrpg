@@ -17,6 +17,13 @@ async function HeaderMenu() {
     const destinies = getAllDestinies()
     const origins = getAllOrigins()
 
+    const editorChild = process.env.INCLUDE_EDITOR !== `1`
+        ? []
+        : [{
+            name: `Edit`,
+            pathName: `editor`,
+        }]
+
     return (<NavigationMenu items={
         [
             {
@@ -35,6 +42,7 @@ async function HeaderMenu() {
                     return {
                         name: item.name,
                         pathName: path,
+                        children: editorChild
                     }
                 }),
             },
@@ -45,6 +53,7 @@ async function HeaderMenu() {
                     return {
                         name: item.name,
                         pathName: path,
+                        children: editorChild
                     }
                 }),
             },

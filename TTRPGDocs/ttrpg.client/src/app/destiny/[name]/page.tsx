@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getDestiny, DestinyViewer, getAllDestinies } from "@/data/destiny"
 import { decodePageParameter, encodePageParameter, betterDecodeURIComponent } from "@/betterEncodeURIComponent";
+import { Fragment } from "react";
+import Link from "next/link";
 
 export default async function DestinyPage({ params }: { params: Promise<{ name: string }> }) {
     const args = await params
@@ -8,7 +10,10 @@ export default async function DestinyPage({ params }: { params: Promise<{ name: 
     const name = decodePageParameter(args.name)
 
     const data = await getDestiny(name)
-    return <DestinyViewer data={data} />
+    return <Fragment>
+        {process.env.INCLUDE_EDITOR !== `1` ? "" : <Link href={`${args.name}/editor/`}>EDIT</Link>}
+        <DestinyViewer data={data} />
+    </Fragment>
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {

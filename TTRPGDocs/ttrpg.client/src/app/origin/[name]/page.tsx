@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getOrigin, OriginViewer, getAllOrigins } from "@/data/origin"
 import { decodePageParameter, encodePageParameter, betterDecodeURIComponent } from "@/betterEncodeURIComponent";
+import { Fragment } from "react";
+import Link from "next/link";
 
 export default async function OriginPage({ params }: { params: Promise<{ name: string }> }) {
     const args = await params
@@ -8,7 +10,10 @@ export default async function OriginPage({ params }: { params: Promise<{ name: s
     const name = decodePageParameter(args.name)
 
     const data = await getOrigin(name)
-    return <OriginViewer data={data} />
+    return <Fragment>
+        {process.env.INCLUDE_EDITOR !== `1` ? "" : <Link href={`${args.name}/editor/`}>EDIT</Link>}
+        <OriginViewer data={data} />
+    </Fragment>
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
