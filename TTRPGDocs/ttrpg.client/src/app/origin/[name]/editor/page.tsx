@@ -24,7 +24,9 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
 export async function generateStaticParams() {
     if (process.env.INCLUDE_EDITOR !== `1`)
-        return []
+        return [{
+            name: "%5Bname%5D"
+        }]
 
     const dataCollection = await getAllOrigins()
 
