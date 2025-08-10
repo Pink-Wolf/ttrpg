@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { getOrigin, getAllOrigins } from "@/data/origin"
+import { getDestiny, getAllDestinies } from "@/data/destiny"
 import { decodePageParameter, encodePageParameter, betterDecodeURIComponent } from "@/betterEncodeURIComponent";
-import OriginEditor from "@/editor/origin";
+import DestinyEditor from "@/editor/destiny";
 
-export default async function OriginEditorPage({ params }: { params: Promise<{ name: string }> }) {
+export default async function DestinyEditorPage({ params }: { params: Promise<{ name: string }> }) {
     const args = await params
     if (args.name === "%5Bname%5D") return <div />
     const name = decodePageParameter(args.name)
 
-    const data = await getOrigin(name)
-    return <OriginEditor initialData={data} />
+    const data = await getDestiny(name)
+    return <DestinyEditor initialData={data} />
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
     const args = await params
     const name = decodePageParameter(args.name)
 
-    const data = await getOrigin(name)
+    const data = await getDestiny(name)
     return {
         title: data.name
     }
@@ -28,7 +28,7 @@ export async function generateStaticParams() {
             name: "%5Bname%5D"
         }]
 
-    const dataCollection = await getAllOrigins()
+    const dataCollection = await getAllDestinies()
 
     return Object.keys(dataCollection).map(name => {
         const result = {

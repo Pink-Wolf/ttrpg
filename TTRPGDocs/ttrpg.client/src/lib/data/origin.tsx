@@ -2,10 +2,9 @@ import "@/styles/origin.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData, postData } from "./getData";
 import Ability, { AbilityViewer } from "./ability";
-import { FormEvent, Fragment } from "react";
+import { Fragment } from "react";
 import FormattedText, { toTitleCase } from "@/formatter";
 import Keyword from "@/Keyword";
-import Input, { SubmitInput } from "@/Input";
 
 export default interface Origin {
     name: string;
@@ -94,19 +93,7 @@ export async function getOrigin(name: string): Promise<Origin> {
     }
     else return await getData("origin/" + encodedName)
 }
+
 export function postOrigin(data: Origin): Promise<Response> {
     return postData(`origin`, data)
-}
-
-export function OriginForm({ data, dataSetter, onSubmit }: { data: Origin, dataSetter: (newData: Origin) => void, onSubmit: () => void }) {
-    function onSubmitMiddlepoint(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-
-        onSubmit()
-    }
-
-    return (<form className="origin-editor" onSubmit={onSubmitMiddlepoint}>
-        <Input<Origin> setter={dataSetter} value={data} />
-        <SubmitInput label="Save" />
-    </form>)
 }

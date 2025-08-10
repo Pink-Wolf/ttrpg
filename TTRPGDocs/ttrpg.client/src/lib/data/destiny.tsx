@@ -1,6 +1,6 @@
 import "@/styles/destiny.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
-import { getData } from "./getData";
+import { getData, postData } from "./getData";
 import Ability, { AbilityViewer } from "./ability";
 import FormattedText from "@/formatter";
 
@@ -61,4 +61,8 @@ export async function getDestiny(name: string): Promise<Destiny> {
         return data
     }
     else return await getData("destiny/" + encodedName)
+}
+
+export function postDestiny(data: Destiny): Promise<Response> {
+    return postData(`destiny`, data)
 }
