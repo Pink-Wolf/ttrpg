@@ -1,6 +1,4 @@
-const DATABASE_URL = (process.env.IS_SERVER !== `1` && navigator.userAgent.toLowerCase().includes(`windows`))
-    ? `https://localhost:7068/`
-    : `https://127.0.0.1:7068/`
+const DATABASE_URL = `https://localhost:7068/`
 
 const cachedResults = new Map()
 
