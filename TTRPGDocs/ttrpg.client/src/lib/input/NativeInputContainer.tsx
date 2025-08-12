@@ -1,7 +1,8 @@
 import { Fragment, JSX } from "react"
 import { fromCamelCaseToSpaced } from "@/formatter"
 
-export function NativeInputContainer<_T, InputProps extends {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function NativeInputContainer<T, InputProps extends {
     id?: string,
     disabled?: boolean,
 }>(
