@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { getDestiny, DestinyViewer, getAllDestinies } from "@/data/destiny"
+import { getDestiny, getAllDestinies } from "@/data/destiny"
 import { decodePageParameter, encodePageParameter, betterDecodeURIComponent } from "@/betterEncodeURIComponent";
 import { Fragment } from "react";
 import Link from "next/link";
+import DestinyViewer from "@/data/DestinyViewer";
 
 export default async function DestinyPage({ params }: { params: Promise<{ name: string }> }) {
     const args = await params

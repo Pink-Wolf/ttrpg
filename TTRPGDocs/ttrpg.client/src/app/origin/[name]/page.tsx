@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { getOrigin, OriginViewer, getAllOrigins } from "@/data/origin"
+import { getOrigin, getAllOrigins } from "@/data/origin"
 import { decodePageParameter, encodePageParameter, betterDecodeURIComponent } from "@/betterEncodeURIComponent";
 import { Fragment } from "react";
 import Link from "next/link";
+import OriginViewer from "@/data/OriginViewer";
 
 export default async function OriginPage({ params }: { params: Promise<{ name: string }> }) {
     const args = await params

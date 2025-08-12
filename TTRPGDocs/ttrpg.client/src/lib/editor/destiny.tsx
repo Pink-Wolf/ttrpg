@@ -1,8 +1,9 @@
 'use client'
 
 import { FormEvent, useState } from "react"
-import Destiny, { DestinyInput, postDestiny } from "@/data/destiny"
+import Destiny, { postDestiny } from "@/data/destiny"
 import { SubmitInput } from "@/Input"
+import DestinyInput from "@/data/DestinyInput"
 
 export default function DestinyEditor({ initialValue, id }: { initialValue: Destiny, id: string }) {
     const [value, setter] = useState<Destiny>(initialValue)

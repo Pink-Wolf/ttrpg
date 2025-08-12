@@ -1,8 +1,9 @@
 'use client'
 
 import { FormEvent, useState } from "react"
-import Origin, { OriginInput, postOrigin } from "@/data/origin"
+import Origin, { postOrigin } from "@/data/origin"
 import { SubmitInput } from "@/Input"
+import OriginInput from "@/data/OriginInput"
 
 export default function OriginEditor({ initialValue, id }: { initialValue: Origin, id: string }) {
     const [value, setter] = useState<Origin>(initialValue)
