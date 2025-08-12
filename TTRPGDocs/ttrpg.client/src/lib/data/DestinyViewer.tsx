@@ -12,7 +12,7 @@ export default async function DestinyViewer({ data }: { data: Destiny }) {
         <figure className="destiny-playstyle-viewer">
             {destiny.playstyles.map(playstyle => {
                 return (<div key={playstyle.title}>
-                    <b>{playstyle.title}</b>, <FormattedText>{playstyle.description}</FormattedText>
+                    <FormattedText>**{playstyle.title}** {playstyle.description}</FormattedText>
                 </div>)
             })}
         </figure>
