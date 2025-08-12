@@ -22,8 +22,8 @@ async function InnerOriginViewer(origin: Origin) {
                 <tbody>
                     {Object.entries(origin.attributes ?? {}).map(([attribute, level]) => {
                         return (<tr key={attribute}>
-                            <th><Keyword>{toTitleCase(attribute)}</Keyword></th>
-                            <td>{level}</td>
+                            <th><FormattedText>{attribute}</FormattedText></th>
+                            <td><FormattedText>{level}</FormattedText></td>
                         </tr>)
                     })}
                 </tbody>
@@ -35,7 +35,7 @@ async function InnerOriginViewer(origin: Origin) {
             <ul>
                 {Object.entries(origin.skills ?? {}).map(([skill, level]) => {
                     return (<li key={skill}>
-                        <b><Keyword>{toTitleCase(skill)}</Keyword></b>: {level}
+                        <FormattedText>**{skill}**: {level}</FormattedText>
                     </li>)
                 })}
             </ul>

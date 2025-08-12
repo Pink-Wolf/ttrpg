@@ -8,13 +8,13 @@
       "summary": "Origin: Younger elves, embodying fey whimsy.",
       "description": "An elf younger than a century, who usually embodies the whimsy of their fey origins.",
       "attributes": {
-        "wits": "2",
-        "intellect": "1"
+        "{Wits}": "2",
+        "{Intellect}": "1"
       },
       "skills": {
-        "nature": "1",
-        "arcane": "2",
-        "trickery": "1"
+        "{Nature} and {Dodge}": "1",
+        "{Arcane} and {Warding}": "2",
+        "{Trickery}": "1"
       },
       "abilities": [
         {
@@ -31,13 +31,13 @@
       "summary": "Origin: Older elves, embodying nature.",
       "description": "An elf older than a century, who usually has left behind their fey whimsy for tranquil rest.",
       "attributes": {
-        "wits": "1",
-        "intellect": "2"
+        "{Wits}": "1",
+        "{Intellect}": "2"
       },
       "skills": {
-        "nature": "2",
-        "arcane": "1",
-        "lore": "1"
+        "{Nature} and {Dodge}": "2",
+        "{Arcane} and {Warding}": "1",
+        "{Lore}": "1"
       },
       "abilities": [
         {
