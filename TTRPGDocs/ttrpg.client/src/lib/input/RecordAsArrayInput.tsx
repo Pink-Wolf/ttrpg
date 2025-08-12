@@ -1,4 +1,4 @@
-import { ArrayInput, BaseInputProps, BaseSmartInput, BasicInput } from "@/Input"
+import { ArrayInput, BaseInputProps, BaseSmartInput } from "@/Input"
 import { JSX, Fragment } from "react"
 import { fromCamelCaseToSpaced } from "@/formatter"
 

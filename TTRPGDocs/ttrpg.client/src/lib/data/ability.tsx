@@ -1,7 +1,7 @@
 import "@/styles/ability.css"
 import FormattedText, { fromCamelCaseToSpaced, toTitleCase, upperCaseFirstLetter } from "@/formatter";
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
-import { BaseInputProps, BasicInput, FieldInput, OptionalInput, SubmitInput } from "@/Input";
+import { BaseInputProps, BasicInput, FieldInput, OptionalInput } from "@/Input";
 
 export default interface Ability {
     name: string;

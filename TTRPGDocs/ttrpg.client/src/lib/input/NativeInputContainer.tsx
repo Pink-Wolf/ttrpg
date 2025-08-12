@@ -1,7 +1,7 @@
 import { Fragment, JSX } from "react"
 import { fromCamelCaseToSpaced } from "@/formatter"
 
-export function NativeInputContainer<T, InputProps extends {
+export function NativeInputContainer<_T, InputProps extends {
     id?: string,
     disabled?: boolean,
 }>(

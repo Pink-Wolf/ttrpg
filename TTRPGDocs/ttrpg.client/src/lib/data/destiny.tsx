@@ -3,8 +3,8 @@ import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData, postData } from "./getData";
 import Ability, { AbilityInput, AbilityViewer } from "./ability";
 import FormattedText, { fromCamelCaseToSpaced } from "@/formatter";
-import { FormEvent, Fragment } from "react";
-import { SmartInput, ArrayInput, BasicInput, FieldInput, SubmitInput, BaseInputProps, RecordAsArrayInput } from "@/Input";
+import { Fragment } from "react";
+import { ArrayInput, BasicInput, FieldInput, BaseInputProps, RecordAsArrayInput } from "@/Input";
 
 export default interface Destiny {
     name: string;
