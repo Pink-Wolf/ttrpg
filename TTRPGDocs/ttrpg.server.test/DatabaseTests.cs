@@ -31,5 +31,14 @@ namespace ttrpg.server.test
 
             Assert.That(actual, Is.EquivalentTo(expected));
         }
+
+        [Test]
+        public async Task GetAllToolsFast()
+        {
+            var actual = JsonSerializer.Deserialize<IDictionary<string, Tool>>(await database.GetAllToolsFast(), Database.jsonOptions);
+            var expected = await database.GetAllTools();
+
+            Assert.That(actual, Is.EquivalentTo(expected));
+        }
     }
 }

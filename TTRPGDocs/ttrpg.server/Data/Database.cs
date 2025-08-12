@@ -11,6 +11,7 @@ namespace ttrpg.server.Data
         const string dataPath = "Data/";
         const string destinyPath = $"{dataPath}destiny/";
         const string originPath = $"{dataPath}origin/";
+        const string toolPath = $"{dataPath}tool/";
 
         public static readonly JsonSerializerOptions jsonOptions = new()
         {
@@ -108,5 +109,13 @@ namespace ttrpg.server.Data
         public Task<IDictionary<string, Origin>> GetAllOrigins() => GetAll<Origin>(originPath);
         public Task SetOrigin(string data, out string name) => Set(originPath, data, out name);
         public Task SetOrigin(Origin data, out string name) => Set(originPath, data, out name);
+
+
+        public Task<string?> GetToolFast(string name) => GetFast(toolPath, name);
+        public Task<Tool?> GetTool(string name) => Get<Tool>(toolPath, name);
+        public Task<string> GetAllToolsFast() => GetAllFast(toolPath);
+        public Task<IDictionary<string, Tool>> GetAllTools() => GetAll<Tool>(toolPath);
+        public Task SetTool(string data, out string name) => Set(toolPath, data, out name);
+        public Task SetTool(Tool data, out string name) => Set(toolPath, data, out name);
     }
 }

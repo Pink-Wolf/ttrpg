@@ -4,6 +4,7 @@ import { getAllDestinies } from "@/data/destiny";
 import NavigationMenu from "@/NavigationMenu";
 import getArticleNames from "./article/getArticleNames";
 import { getAllOrigins } from "@/data/origin";
+import { getAllTools } from "@/data/tool";
 
 export const dynamic = 'force-static'
 
@@ -16,6 +17,7 @@ async function HeaderMenu() {
     const articles = getArticleNames()
     const destinies = getAllDestinies()
     const origins = getAllOrigins()
+    const tools = getAllTools()
 
     const editorChild = process.env.INCLUDE_EDITOR !== `1`
         ? []
@@ -50,6 +52,17 @@ async function HeaderMenu() {
                 name: "Origins",
                 pathName: "/origin",
                 children: Object.entries(await origins).map(([path, item]) => {
+                    return {
+                        name: item.name,
+                        pathName: path,
+                        children: editorChild
+                    }
+                }),
+            },
+            {
+                name: "Tools",
+                pathName: "/tool",
+                children: Object.entries(await tools).map(([path, item]) => {
                     return {
                         name: item.name,
                         pathName: path,

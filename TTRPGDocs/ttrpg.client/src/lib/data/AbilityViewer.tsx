@@ -5,7 +5,7 @@ import Ability, { AbilityConsequence } from "./ability"
 export async function AbilityViewer({ data }: { data: Ability }) {
     const ability = data
 
-    const fields = Object.keys(data).filter(field => {
+    const fields = Object.keys(ability).filter(field => {
         return !(["name", "consequences", "description"].includes(field))
     })
     const consequences = ability.consequences
