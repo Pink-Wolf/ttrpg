@@ -47,7 +47,7 @@ export function GetDamageTypes(): DamageType[] {
         },
         {
             name: "Psychic",
-            description: "Damage from attacks against one&apos;s mind.",
+            description: "Damage from attacks against one's mind.",
         },
     ]
 }

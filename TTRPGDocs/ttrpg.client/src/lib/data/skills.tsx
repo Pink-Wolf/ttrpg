@@ -36,7 +36,7 @@ const skillCategories = [
             },
             Heart: {
                 name: "Charm",
-                description: "Whether through words or just one&apos;s general likability,\nthe ability to control people&apos;s emotions or make them help you out of the goodness of their heart.",
+                description: "Whether through words or just one's general likability,\nthe ability to control people's emotions or make them help you out of the goodness of their heart.",
                 summary: "{Heart} Social skill",
             },
         },
@@ -114,7 +114,7 @@ const skillCategories = [
             },
             Heart: {
                 name: "People",
-                description: "Whether it be the local customs, people&apos;s likely reaction, or the gods and their influence over communities, people are a complex field of study.",
+                description: "Whether it be the local customs, people's likely reaction, or the gods and their influence over communities, people are a complex field of study.",
                 summary: "{Heart} Knowledge skill",
             },
         },
@@ -125,7 +125,7 @@ const skillCategories = [
         skills: {
             Physique: {
                 name: "Awareness",
-                description: "A constant sense of what is going on, especially from the corner of one&apos;s eye. This awareness helps avoid surprises like an ambush or trap.",
+                description: "A constant sense of what is going on, especially from the corner of one's eye. This awareness helps avoid surprises like an ambush or trap.",
                 summary: "{Physique} Perception skill",
             },
             Wits: {
@@ -140,7 +140,7 @@ const skillCategories = [
             },
             Heart: {
                 name: "Insight",
-                description: "Understanding the words unspoken, or the intentions hidden away, insight is the opponent of other&apos;s trickery, whether intentional or not.",
+                description: "Understanding the words unspoken, or the intentions hidden away, insight is the opponent of other's trickery, whether intentional or not.",
                 summary: "{Heart} Perception skill",
             },
         },
@@ -166,7 +166,7 @@ const skillCategories = [
             },
             Heart: {
                 name: "Storytelling",
-                description: "To craft stories, songs, myths and poems; to control people&apos;s emotion with nothing but words; it is hard to believe it is not arcane magic.",
+                description: "To craft stories, songs, myths and poems; to control people's emotion with nothing but words; it is hard to believe it is not arcane magic.",
                 summary: "{Heart} Art skill",
             },
         },
