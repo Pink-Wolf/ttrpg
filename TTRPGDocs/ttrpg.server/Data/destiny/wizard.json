@@ -33,7 +33,7 @@
       },
       {
         "name": "Prestidigitation",
-        "description": "You magically enhance a character, making them perform unnaturally well.\nAdd your {Arcane} level to the rolled value.",
+        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nAdd your {Arcane} level to the rolled value.",
         "frequency": "1/level per day",
         "reaction": "The target rolls to do an action",
         "target": "You or someone within melee range"
