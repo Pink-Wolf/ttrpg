@@ -4,6 +4,7 @@ import "./page.module.css"
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
+import { Tooltip } from "@/Keyword";
 
 export const metadata: Metadata = {
     title: "Skills",
@@ -54,7 +55,7 @@ export default function SkillArticle() {
                         return (<tr key={category.name} id={betterEncodeURIComponent(category.name)}>
                             <th>{category.name}</th>
                             {Object.values(category.skills).map(skill => {
-                                return <td key={skill.name}>{skill.name}</td>
+                                return <td key={skill.name}>{skill.name}<Tooltip>{skill.description}</Tooltip></td>
                             })}
                         </tr>)
                     })}
