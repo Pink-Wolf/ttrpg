@@ -7,7 +7,7 @@ export default async function ToolViewer({ data }: { data: Tool }) {
     const tool = data
 
     const fields = Object.keys(tool).filter(field => {
-        return !(["name", "description", "abilities"].includes(field))
+        return !(["name", "summary", "description", "abilities"].includes(field))
     })
 
     return (<article className="tool-viewer" id={betterEncodeURIComponent(tool.name)}>
