@@ -3,6 +3,7 @@ import { GetSkillCategories, GetSkillsFromAttribute } from "@/data/skills";
 import "./page.module.css"
 import type { Metadata } from "next";
 import { Fragment } from "react";
+import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 
 export const metadata: Metadata = {
     title: "Skills",
@@ -50,7 +51,7 @@ export default function SkillArticle() {
                 </thead>
                 <tbody>
                     {GetSkillCategories().map(category => {
-                        return (<tr key={category.name} id={category.name}>
+                        return (<tr key={category.name} id={betterEncodeURIComponent(category.name)}>
                             <th>{category.name}</th>
                             {Object.values(category.skills).map(skill => {
                                 return <td key={skill.name}>{skill.name}</td>
@@ -69,7 +70,7 @@ export default function SkillArticle() {
                         <h3>{attribute.name}</h3>
                         {GetSkillsFromAttribute(attribute).map(skill => {
                             return (<Fragment key={skill.name}>
-                                <h4 id={skill.name}>{skill.name}</h4>
+                                <h4 id={betterEncodeURIComponent(skill.name)}>{skill.name}</h4>
                                 {skill.description}
                             </Fragment>)
                         })}

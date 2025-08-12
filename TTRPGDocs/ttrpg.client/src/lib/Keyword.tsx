@@ -4,7 +4,7 @@ import { getAllDestinies } from "./data/destiny"
 import { getAllOrigins } from "./data/origin"
 import { Fragment, JSX } from "react"
 import { GetAttributes } from "./data/attributes"
-import { GetSkills } from "./data/skills"
+import { GetSkillCategories, GetSkills } from "./data/skills"
 import betterEncodeURIComponent from "./betterEncodeURIComponent"
 import { GetDamageTypes } from "./data/damageTypes"
 import { InlineFormattedText } from "./formatter"
@@ -30,6 +30,7 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
         .concat(Object.entries(await origins).map(([path, item]) => [`/origin/${path}`, item.name, item.summary]))
         .concat(GetAttributes().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, `Attribute: ${item.description}`]))
         .concat(GetSkills().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.summary]))
+        .concat(GetSkillCategories().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
         .concat(GetDamageTypes().map(item => [`/article/damage+types#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
 
     entries.forEach(([path, name, description]) => {
