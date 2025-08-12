@@ -38,6 +38,12 @@
         "reaction": "The target rolls to do an action",
         "target": "You or someone within melee range"
       }
+    ],
+    "2": [
+      {
+        "name": "Skill Enhancement",
+        "description": "Gain \u002B3 to the following skills:\n- {Arcane}.\n- one {Knowledge} skill.\n- one {Intellect} skill that is not {Arcane}.\n"
+      }
     ]
   }
 }
