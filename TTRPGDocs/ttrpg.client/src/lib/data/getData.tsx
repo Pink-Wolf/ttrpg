@@ -2,7 +2,7 @@ const DATABASE_URL = `https://localhost:7068/`
 
 const cachedResults = new Map()
 
-export async function getDataNoCache<Type>(path: string): Promise<Type> {
+async function fetchData<Type>(path: string): Promise<Type> {
     const response = await fetch(DATABASE_URL + path, {
         method: `GET`,
         cache: `no-cache`,
@@ -10,11 +10,19 @@ export async function getDataNoCache<Type>(path: string): Promise<Type> {
             'Content-Type': `application/json`,
         },
     })
-    if (!response.ok) throw new Error(
-        `Could not get data from "${path}" (${response.status}):\n${await response.text()}\n`
-    )
+    if (!response.ok) {
+        throw new Error(
+            `Could not get data from "${path}" (${response.status}):\n${await response.text()}\n`
+        )
+    }
 
     return await response.json()
+}
+export function getDataNoCache<Type>(path: string): Promise<Type> {
+    if (process.env.ALLOW_NO_SERVER == `1`)
+        return fetchData(path).catch(e => ({})) as Promise<Type>
+    else
+        return fetchData(path)
 }
 export async function getData<Type>(path: string): Promise<Type> {
     if (process.env.CACHE_SERVER_DATA == `1`) {
