@@ -17,7 +17,7 @@ export default function PlayerArticle() {
 
         <section>
             <p>
-                Characters gain levels in skills from various sources. A character has a skill if they have at least 1 level in the skill.
+                Characters gain levels in skills from various sources. A character has a skill if they have at least 1 (non-temporary) level in that skill.
                 If a character gains level in a skill from multiple sources, then their actual level is the sum of these sources.
             </p>
         </section>

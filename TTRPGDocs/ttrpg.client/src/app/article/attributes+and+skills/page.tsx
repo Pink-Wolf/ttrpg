@@ -39,6 +39,9 @@ export default function SkillArticle() {
             <p>
                 The amount of skills is only limited by one&apos;s imagination. There is for example one skill for every tool or niche one can think of. <br />
                 Most skills have an associated attribute; if a character has one of these skills, then they add their score in that attribute to the skill&apos;s score. <br />
+                A character has a skill if they have at least one (non-temporary) level in that skill. <br />
+            </p>
+            <p>
                 While there are an infinite number of skills, one will mostly use the following 24 general skills (6 for each attribute):
             </p>
             <table id="skill-table">
