@@ -5,8 +5,8 @@ import DestinyEditor from "@/editor/destiny";
 
 export default async function DestinyEditorPage({ params }: { params: Promise<{ name: string }> }) {
     const args = await params
-    if (args.name === "%5Bname%5D") return <div />
     const name = decodePageParameter(args.name)
+    if (name === "[name]") return <div />
 
     const data = await getDestiny(name)
     return <DestinyEditor initialValue={data} id="destiny" />
@@ -15,6 +15,7 @@ export default async function DestinyEditorPage({ params }: { params: Promise<{ 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
     const args = await params
     const name = decodePageParameter(args.name)
+    if (name === "[name]") return {}
 
     const data = await getDestiny(name)
     return {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 export async function generateStaticParams() {
     if (process.env.INCLUDE_EDITOR !== `1`)
         return [{
-            name: "%5Bname%5D"
+            name: `[name]` // generateStaticParams needs to return at least 1 page
         }]
 
     const dataCollection = await getAllDestinies()
