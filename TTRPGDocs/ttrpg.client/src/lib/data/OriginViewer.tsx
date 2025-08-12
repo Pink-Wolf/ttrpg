@@ -1,7 +1,6 @@
 import { Fragment } from "react"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent"
-import FormattedText, { toTitleCase } from "@/formatter"
-import Keyword from "@/Keyword"
+import FormattedText from "@/formatter"
 import Origin from "./origin"
 import { AbilityViewer } from "./AbilityViewer"
 
