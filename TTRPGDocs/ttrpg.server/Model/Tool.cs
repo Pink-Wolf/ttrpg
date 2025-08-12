@@ -17,7 +17,7 @@ namespace ttrpg.server.Model
             && Name == other.Name
             && Summary == other.Summary
             && Description == other.Description
-            && Abilities == other.Abilities
+            && Abilities.SequenceEqual(other.Abilities)
             && Level == other.Level
             && Price == other.Price
             && Rarity == other.Rarity

@@ -1,5 +1,7 @@
 ﻿#pragma warning disable CS8618
 
+using System.Linq;
+
 namespace ttrpg.server.Model
 {
     public class Destiny : IEquatable<Destiny>
@@ -10,11 +12,22 @@ namespace ttrpg.server.Model
         public List<DestinyPlaystyle> Playstyles { get; set; }
         public Dictionary<string, List<Ability>> Abilities { get; set; }
 
+        private class AbilitiesComparer : IEqualityComparer<KeyValuePair<string, List<Ability>>>
+        {
+            public bool Equals(KeyValuePair<string, List<Ability>> x, KeyValuePair<string, List<Ability>> y)
+                => x.Key == y.Key
+                && (x.Value?.SequenceEqual(y.Value) ?? (y.Value is null));
+
+            public int GetHashCode(KeyValuePair<string, List<Ability>> obj) => obj.Key.GetHashCode();
+        }
+
         public override int GetHashCode() => Name.GetHashCode();
         public bool Equals(Destiny? other) => other is not null
             && Name == other.Name
             && Summary == other.Summary
             && Description == other.Description
+            && Playstyles.SequenceEqual(other.Playstyles)
+            && Abilities.SequenceEqual(other.Abilities, new AbilitiesComparer())
         ;
         public override bool Equals(object? obj) => obj is Destiny other
             && Equals(other)
