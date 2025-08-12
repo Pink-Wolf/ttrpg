@@ -9,7 +9,7 @@ export default async function OriginEditorPage({ params }: { params: Promise<{ n
     const name = decodePageParameter(args.name)
 
     const data = await getOrigin(name)
-    return <OriginEditor initialData={data} />
+    return <OriginEditor initialValue={data} id="origin" />
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {

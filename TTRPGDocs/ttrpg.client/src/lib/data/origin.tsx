@@ -1,17 +1,18 @@
 import "@/styles/origin.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData, postData } from "./getData";
-import Ability, { AbilityViewer } from "./ability";
+import Ability, { AbilityInput, AbilityViewer } from "./ability";
 import { Fragment } from "react";
-import FormattedText, { toTitleCase } from "@/formatter";
+import FormattedText, { fromCamelCaseToSpaced, toTitleCase } from "@/formatter";
 import Keyword from "@/Keyword";
+import { ArrayInput, BaseInputProps, BasicInput, FieldInput, OptionalInput, RecordAsArrayInput } from "@/Input";
 
 export default interface Origin {
     name: string;
     summary: string;
     description: string;
-    attributes?: Map<string, string>;
-    skills?: Map<string, string>;
+    attributes?: Record<string, string>;
+    skills?: Record<string, string>;
     abilities?: Ability[];
     suborigins?: Origin[];
 }
@@ -96,4 +97,73 @@ export async function getOrigin(name: string): Promise<Origin> {
 
 export function postOrigin(data: Origin): Promise<Response> {
     return postData(`origin`, data)
+}
+
+export function OriginInput({ value, setter, idPath, label, disabled }: BaseInputProps<Origin>) {
+    return (<div className="origin-editor">
+        <h3>{label ?? fromCamelCaseToSpaced(idPath[idPath.length - 1])}</h3>
+
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="name" fieldInput={BasicInput}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="summary" fieldInput={BasicInput}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="description"
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="attributes" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => ({}),
+                definedInput: props => RecordAsArrayInput({
+                    ...props as BaseInputProps<Record<string, string>>,
+                    forEach: BasicInput,
+                    newValue: () => ["", ""] as [string, string],
+                    fieldInput: BasicInput,
+                })
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="skills" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => ({}),
+                definedInput: props => RecordAsArrayInput({
+                    ...props as BaseInputProps<Record<string, string>>,
+                    forEach: BasicInput,
+                    newValue: () => ["", ""] as [string, string],
+                    fieldInput: BasicInput,
+                })
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="abilities" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => [],
+                definedInput: props => ArrayInput({
+                    ...props as BaseInputProps<Ability[]>,
+                    forEach: AbilityInput,
+                    newValue: () => ({
+                        name: "",
+                        description: "",
+                    })
+                })
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="suborigins" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => [],
+                definedInput: props => ArrayInput({
+                    ...props as BaseInputProps<Origin[]>,
+                    forEach: OriginInput,
+                    newValue: () => ({
+                        name: "",
+                        summary: "",
+                        description: "",
+                    })
+                })
+            })}
+        />
+    </div>)
 }

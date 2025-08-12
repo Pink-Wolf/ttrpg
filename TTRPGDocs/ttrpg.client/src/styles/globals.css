@@ -80,27 +80,23 @@ table, table > * > * > * {
     border-color: var(--secondaryBackground);
 }
 
-textarea {
-    width: 100%;
-    height: 3lh;
-}
-
-label, #labelSection {
+label, .input-label {
     display: flex;
 }
 
-    label > :not([type="checkbox"]), #labelSection > * {
+    label > :not([type="checkbox"]), .input-label > * {
         flex: 1;
     }
 
-input:not([type]), input[type=text] {
-    width: 100%;
+input:not([type]), input[type=text], textarea {
+    width: 95%;
 }
 
-.inputContainer {
-    margin-left: .25em;
-    padding-left: .6em;
-    border-left: .15em solid;
+.ability-editor {
+    border: 5px solid;
+    border-collapse: collapse;
+    border-color: var(--secondaryBackground);
+    padding: 5px;
 }
 
 .keyword {

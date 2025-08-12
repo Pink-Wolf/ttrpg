@@ -1,6 +1,7 @@
 import "@/styles/ability.css"
-import FormattedText, { toTitleCase, upperCaseFirstLetter } from "@/formatter";
+import FormattedText, { fromCamelCaseToSpaced, toTitleCase, upperCaseFirstLetter } from "@/formatter";
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
+import { BaseInputProps, BasicInput, FieldInput, OptionalInput, SubmitInput } from "@/Input";
 
 export default interface Ability {
     name: string;
@@ -64,4 +65,63 @@ export async function AbilityViewer({ data }: { data: Ability }) {
             </tbody>
         </table>
     </figure>)
+}
+
+export function AbilityInput({ value, setter, idPath, label, disabled }: BaseInputProps<Ability>) {
+    return (<div className="ability-editor">
+        <h3>{label ?? fromCamelCaseToSpaced(idPath[idPath.length - 1])}</h3>
+
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="name" fieldInput={BasicInput}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="description"
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="frequency" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => "",
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="actions" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => "",
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="reaction" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => "",
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="target" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => "",
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="skill" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => "",
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="bonus" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => "",
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="consequences" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => ({
+                    minor: "",
+                    medium: "",
+                    major: "",
+                }),
+            })}
+        />
+    </div>)
 }

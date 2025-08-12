@@ -9,7 +9,7 @@ export default async function DestinyEditorPage({ params }: { params: Promise<{ 
     const name = decodePageParameter(args.name)
 
     const data = await getDestiny(name)
-    return <DestinyEditor initialData={data} />
+    return <DestinyEditor initialValue={data} id="destiny" />
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {

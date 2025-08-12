@@ -1,19 +1,20 @@
 'use client'
 
 import { FormEvent, useState } from "react"
-import Origin, { postOrigin } from "@/data/origin"
-import Input, { SubmitInput } from "@/Input"
+import Origin, { OriginInput, postOrigin } from "@/data/origin"
+import { SubmitInput } from "@/Input"
 
-export default function OriginEditor({ initialData }: { initialData: Origin }) {
-    const [data, dataSetter] = useState<Origin>(initialData)
+export default function OriginEditor({ initialValue, id }: { initialValue: Origin, id: string }) {
+    const [value, setter] = useState<Origin>(initialValue)
 
     function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
-        postOrigin(data)
+
+        postOrigin(value)
     }
 
-    return (<form className="origin-editor" onSubmit={onSubmit}>
-        <Input<Origin> setter={dataSetter} value={data} />
+    return (<form onSubmit={onSubmit}>
+        <OriginInput value={value} setter={setter} idPath={[id]} label="" />
         <SubmitInput label="Save" />
     </form>)
 }

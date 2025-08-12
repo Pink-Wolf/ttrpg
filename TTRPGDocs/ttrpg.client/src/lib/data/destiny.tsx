@@ -1,15 +1,17 @@
 import "@/styles/destiny.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData, postData } from "./getData";
-import Ability, { AbilityViewer } from "./ability";
-import FormattedText from "@/formatter";
+import Ability, { AbilityInput, AbilityViewer } from "./ability";
+import FormattedText, { fromCamelCaseToSpaced } from "@/formatter";
+import { FormEvent, Fragment } from "react";
+import { SmartInput, ArrayInput, BasicInput, FieldInput, SubmitInput, BaseInputProps, RecordAsArrayInput } from "@/Input";
 
 export default interface Destiny {
     name: string;
     summary: string;
     description: string;
     playstyles: DestinyPlaystyle[];
-    abilities: Map<string, Ability[]>;
+    abilities: Record<string, Ability[]>;
 }
 export interface DestinyPlaystyle {
     title: string;
@@ -65,4 +67,58 @@ export async function getDestiny(name: string): Promise<Destiny> {
 
 export function postDestiny(data: Destiny): Promise<Response> {
     return postData(`destiny`, data)
+}
+
+export function DestinyInput({ value, setter, idPath, label, disabled }: BaseInputProps<Destiny>) {
+
+    const abilityLevelCount = Object.entries(value.abilities).length
+
+    return (<div className="destiny-editor">
+        <h3>{label ?? fromCamelCaseToSpaced(idPath[idPath.length - 1])}</h3>
+
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="name" fieldInput={BasicInput}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="summary" fieldInput={BasicInput}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="description"
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="playstyles"
+            fieldInput={props => (<ArrayInput {...props as BaseInputProps<DestinyPlaystyle[]>}
+                newValue={() => ({
+                    title: "",
+                    description: "",
+                })}
+                forEach={props => {
+                    return (<Fragment>
+                        <FieldInput {...props}
+                            field="title" fieldInput={BasicInput}
+                        />
+                        <FieldInput {...props}
+                            field="description"
+                        />
+                    </Fragment>)
+                }}
+            />)}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="abilities" fieldInput={props => RecordAsArrayInput({
+                ...props as BaseInputProps<Record<string, Ability[]>>,
+                newValue: () => [String(abilityLevelCount + 1), []],
+                forEach: props => ArrayInput({
+                    ...props,
+                    forEach: AbilityInput,
+                    newValue: () => ({
+                        name: "",
+                        description: "",
+                    })
+                }),
+                onlyRemoveLast: true,
+                fieldInput: x => <h2>{fromCamelCaseToSpaced(x.value)}</h2>
+            })}
+        />
+    </div>)
 }
