@@ -2,5 +2,17 @@
   "name": "Staff",
   "summary": "A simple tool that gives \u002B1 {Arcane}.",
   "description": "A simple yet finely crafted tool; wielding this gives you \u002B1 temporary {Arcane}.\n\nWhen an {Arcane} action uses a hand, then you may use the end of this staff as a free hand.",
-  "abilities": []
+  "abilities": [
+    {
+      "name": "Hit",
+      "description": "Hit something with your stick, dealing 3 {Bludgeoning} damage.",
+      "skill": "{Physique}",
+      "bonus": "Deal an additional 3 damage per bonus.",
+      "consequences": {
+        "minor": "Deal only 2 damage.",
+        "medium": "Deal only 1 damage.",
+        "major": "Deal no damage."
+      }
+    }
+  ]
 }
