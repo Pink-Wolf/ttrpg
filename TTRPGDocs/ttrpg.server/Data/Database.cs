@@ -50,10 +50,13 @@ namespace ttrpg.server.Data
             StringBuilder sb = new("{\n");
             foreach (var item in elements)
             {
+                if (sb.Length > "{\n".Length)
+                    sb.Append(",\n");
+
                 sb.Append('"');
                 sb.Append(item.name);
                 sb.Append("\": ");
-                sb.AppendLine(await item.value);
+                sb.Append(await item.value);
             }
             sb.Append('}');
             return sb.ToString();
