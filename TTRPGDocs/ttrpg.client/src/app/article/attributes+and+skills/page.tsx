@@ -1,6 +1,6 @@
+import "./style.css"
 import { GetAttributes } from "@/data/attributes";
 import { GetSkillCategories, GetSkillsFromAttribute } from "@/data/skills";
-import "./page.module.css"
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
@@ -21,7 +21,7 @@ export default function SkillArticle() {
                 Every character has every attribute, though they likely have 0 levels in some of them.
                 There are 4 attributes:
             </p>
-            <table id="attribute-table">
+            <table className="attribute-table">
                 <thead>
                     <tr>
                         <th>Attribute</th>
@@ -49,7 +49,7 @@ export default function SkillArticle() {
             <p>
                 While there are an infinite number of skills, one will mostly use the following 24 general skills (6 for each attribute):
             </p>
-            <table id="skill-table">
+            <table className="skill-table">
                 <thead>
                     <tr>
                         <th>Category</th>
@@ -82,7 +82,7 @@ export default function SkillArticle() {
 
         <section>
             <h2>General Skill Descriptions</h2>
-            <div id="skill-detail-section">
+            <div className="skill-detail-section">
                 {GetAttributes().map(attribute => {
                     return (<section key={attribute.name}>
                         <h3>{attribute.name}</h3>
