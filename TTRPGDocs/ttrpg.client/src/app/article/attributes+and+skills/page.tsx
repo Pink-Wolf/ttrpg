@@ -4,7 +4,7 @@ import "./page.module.css"
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
-import { Tooltip } from "@/Keyword";
+import Keyword, { Tooltip } from "@/Keyword";
 
 export const metadata: Metadata = {
     title: "Skills",
@@ -16,7 +16,11 @@ export default function SkillArticle() {
         <p>Attributes are the broad capabilities and natural talents of a character, whereas skills are the specific areas a character has trained.</p>
 
         <section>
-            <p> There are 4 attributes: </p>
+            <h2>Attributes</h2>
+            <p>
+                Every character has every attribute, though they likely have 0 levels in some of them.
+                There are 4 attributes:
+            </p>
             <table id="attribute-table">
                 <thead>
                     <tr>
@@ -36,6 +40,7 @@ export default function SkillArticle() {
         </section>
 
         <section>
+            <h2>Skills</h2>
             <p>
                 The amount of skills is only limited by one&apos;s imagination. There is for example one skill for every tool or niche one can think of. <br />
                 Most skills have an associated attribute; if a character has one of these skills, then they add their score in that attribute to the skill&apos;s score. <br />
@@ -64,6 +69,15 @@ export default function SkillArticle() {
                     })}
                 </tbody>
             </table>
+        </section>
+
+        <section>
+            <h2>Temporary Skills</h2>
+            <p>
+                It is possible for characters to gain &quot;temporary&quot; levels in skills, for example from tools like a <Keyword>Staff</Keyword>.
+                These only apply if the character already has at least one non-temporary level in the skill.
+                Other than this one restriction, temporary skill levels are no different from non-temporary skill levels.
+            </p>
         </section>
 
         <section>
