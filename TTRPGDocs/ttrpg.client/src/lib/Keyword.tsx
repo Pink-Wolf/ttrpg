@@ -19,7 +19,16 @@ export function Tooltip({ children }: { children: string }) {
 export default async function Keyword({ children }: { children: string | string[] }) {
     if (typeof (children) !== "string") children = children.join('')
 
-    return (await GetKeywordRecord())[children]
+    const result = (await GetKeywordRecord())[children]
+
+    if (process.env.ALLOW_NO_SERVER === `1`)
+        return result ?? <Fragment>{children}</Fragment>
+
+    if (result === undefined) throw new Error(
+        `Could not find keyword for "${children}"`
+    )
+
+    return result
 }
 
 const keywordRecord: Promise<Record<string, JSX.Element>> = updateKeywordRecord({})
