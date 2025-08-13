@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { getAllDestinies } from "@/data/destiny";
+import NewDestinyButton from "@/editor/NewDestinyButton";
 
 export default async function DestinyPage() {
     const destinies = await getAllDestinies()
@@ -11,6 +12,9 @@ export default async function DestinyPage() {
             {Object.entries(destinies).map(([path, destiny]) => {
                 return <li key={path}><Link href={`/destiny/${path}`}>{destiny.name}</Link></li>
             })}
+            {process.env.INCLUDE_EDITOR !== `1` ? `` : (<li>
+                <NewDestinyButton />
+            </li>)}
         </ul>
     </Fragment>)
 }

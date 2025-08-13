@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { getAllTools } from "@/data/tool";
+import NewToolButton from "@/editor/NewToolButton";
 
 export default async function ToolPage() {
     const tools = await getAllTools()
@@ -11,6 +12,9 @@ export default async function ToolPage() {
             {Object.entries(tools).map(([path, tool]) => {
                 return <li key={path}><Link href={`/tool/${path}`}>{tool.name}</Link></li>
             })}
+            {process.env.INCLUDE_EDITOR !== `1` ? `` : (<li>
+                <NewToolButton />
+            </li>)}
         </ul>
     </Fragment>)
 }
