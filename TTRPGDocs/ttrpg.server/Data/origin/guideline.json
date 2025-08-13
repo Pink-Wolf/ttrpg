@@ -1,0 +1,20 @@
+{
+  "name": "Guideline",
+  "summary": "",
+  "description": "",
+  "attributes": {
+    "Primary Attribute": "2",
+    "Secondary Attribute": "1"
+  },
+  "skills": {
+    "Two Primary Skills (Excluding {Defense})": "2",
+    "One Secondary Skill (Excluding {Defense})": "1",
+    "Two {Defense} Skills": "1"
+  },
+  "abilities": [
+    {
+      "name": "Skill Check Ability",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Guideline",
+  "summary": "",
+  "description": "",
+  "playstyles": [
+    {
+      "title": "In combat",
+      "description": "..."
+    },
+    {
+      "title": "During diplomacy",
+      "description": "..."
+    },
+    {
+      "title": "Against obstacles",
+      "description": "..."
+    }
+  ],
+  "abilities": {
+    "1": [
+      {
+        "name": "Combat Ability",
+        "description": ""
+      },
+      {
+        "name": "Skill Check Abillity",
+        "description": ""
+      }
+    ],
+    "2": [
+      {
+        "name": "Skill Enhancement",
+        "description": "\u002B3 to 3 different skills"
+      }
+    ]
+  }
+}
