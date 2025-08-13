@@ -8,6 +8,7 @@ import { GetSkillCategories, GetSkills } from "./data/skills"
 import betterEncodeURIComponent from "./betterEncodeURIComponent"
 import { GetDamageTypes } from "./data/damageTypes"
 import { InlineFormattedText } from "./formatter"
+import { getAllTools } from "./data/tool"
 
 export function Tooltip({ children }: { children: string }) {
     return (<small className="tooltip">
@@ -25,9 +26,11 @@ const keywordRecord: Promise<Record<string, JSX.Element>> = updateKeywordRecord(
 async function updateKeywordRecord(record: Record<string, JSX.Element>) {
     const destinies = getAllDestinies()
     const origins = getAllOrigins()
+    const tools = getAllTools()
 
     const entries = Object.entries(await destinies).map(([path, item]) => [`/destiny/${path}`, item.name, item.summary])
         .concat(Object.entries(await origins).map(([path, item]) => [`/origin/${path}`, item.name, item.summary]))
+        .concat(Object.entries(await tools).map(([path, item]) => [`/tool/${path}`, item.name, item.summary]))
         .concat(GetAttributes().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, `Attribute: ${item.description}`]))
         .concat(GetSkills().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.summary]))
         .concat(GetSkillCategories().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
