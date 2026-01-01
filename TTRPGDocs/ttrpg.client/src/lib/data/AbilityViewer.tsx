@@ -1,6 +1,6 @@
 import betterEncodeURIComponent from "@/betterEncodeURIComponent"
-import FormattedText, { toTitleCase, upperCaseFirstLetter } from "@/formatter"
-import Ability, { AbilityConsequence } from "./ability"
+import FormattedText, { toTitleCase } from "@/formatter"
+import Ability from "./ability"
 
 export async function AbilityViewer({ data }: { data: Ability }) {
     const ability = data
@@ -8,7 +8,6 @@ export async function AbilityViewer({ data }: { data: Ability }) {
     const fields = Object.keys(ability).filter(field => {
         return !(["name", "consequences", "description"].includes(field))
     })
-    const consequences = ability.consequences
 
     return (<figure className="ability-viewer" id={betterEncodeURIComponent(ability.name)}>
         <table>
@@ -26,19 +25,6 @@ export async function AbilityViewer({ data }: { data: Ability }) {
                         </FormattedText></td>
                     </tr>)
                 })}
-                <tr key="consequences" hidden={consequences === undefined}>
-                    <th>Consequences</th>
-                    <td>
-                        {consequences === undefined
-                            ? []
-                            : Object.keys(consequences).map(severity => {
-                                return (<FormattedText key={severity}>
-                                    **{upperCaseFirstLetter(severity)}:** {consequences[severity as keyof AbilityConsequence]}
-                                </FormattedText>)
-                            })
-                        }
-                    </td>
-                </tr>
                 <tr key="description">
                     <td colSpan={2}>
                         <FormattedText>{ability.description}</FormattedText>

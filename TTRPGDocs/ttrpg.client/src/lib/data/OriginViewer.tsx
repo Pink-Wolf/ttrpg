@@ -3,6 +3,7 @@ import betterEncodeURIComponent from "@/betterEncodeURIComponent"
 import FormattedText from "@/formatter"
 import Origin from "./origin"
 import { AbilityViewer } from "./AbilityViewer"
+import Keyword from "@/Keyword"
 
 async function InnerOriginViewer(origin: Origin) {
     return (<Fragment>
@@ -10,7 +11,7 @@ async function InnerOriginViewer(origin: Origin) {
         <FormattedText>{origin.description}</FormattedText>
 
         <section hidden={origin.attributes === undefined}>
-            Gain the following levels in the denoted attributes:
+            You have the following dice for each attribute:
             <table id="origin-attribute-table">
                 <thead>
                     <tr>
@@ -21,7 +22,7 @@ async function InnerOriginViewer(origin: Origin) {
                 <tbody>
                     {Object.entries(origin.attributes ?? {}).map(([attribute, level]) => {
                         return (<tr key={attribute}>
-                            <th><FormattedText>{attribute}</FormattedText></th>
+                            <th><Keyword>{attribute}</Keyword></th>
                             <td><FormattedText>{level}</FormattedText></td>
                         </tr>)
                     })}

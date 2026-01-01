@@ -48,15 +48,5 @@ export function AbilityInput({ value, setter, idPath, label, disabled }: BaseInp
                 onBecomingDefined: () => "",
             })}
         />
-        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
-            field="consequences" fieldInput={props => OptionalInput({
-                ...props,
-                onBecomingDefined: () => ({
-                    minor: "",
-                    medium: "",
-                    major: "",
-                }),
-            })}
-        />
     </div>)
 }

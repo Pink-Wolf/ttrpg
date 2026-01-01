@@ -24,17 +24,12 @@
         "frequency": "2 per day",
         "target": "All within a 2 tile spray",
         "skill": "Arcane",
-        "bonus": "Deal an additional 2 damage per bonus.",
-        "consequences": {
-          "minor": "Deal only 2 damage.",
-          "medium": "Deal only 1 damage.",
-          "major": "Deal no damage."
-        }
+        "bonus": "Deal an additional 2 damage per bonus."
       },
       {
         "name": "Prestidigitation",
-        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nAdd your {Arcane} level to the rolled value.",
-        "frequency": "1/level per day",
+        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nAdd 2 level to the rolled value.",
+        "frequency": "For each level, 1 per day",
         "reaction": "The target rolls to do an action",
         "target": "You or someone within melee range"
       }
@@ -42,7 +37,7 @@
     "2": [
       {
         "name": "Skill Enhancement",
-        "description": "Gain \u002B3 to the following skills:\n- {Arcane}.\n- one {Knowledge} skill.\n- one {Intellect} skill that is not {Arcane}.\n"
+        "description": "Gain \u002B2 to the following skills:\n- {Arcane}.\n- one {Knowledge} skill.\n- one {Intellect} skill that is not {Arcane}.\n"
       }
     ]
   }

@@ -11,7 +11,6 @@ namespace ttrpg.server.Model
         public string? Target { get; set; }
         public string? Skill {  get; set; }
         public string? Bonus { get; set; }
-        public AbilityConsequence? Consequences { get; set; }
 
         public override int GetHashCode() => Name.GetHashCode();
         public bool Equals(Ability? other) => other is not null
@@ -22,7 +21,6 @@ namespace ttrpg.server.Model
             && Target == other.Target
             && Skill == other.Skill
             && Bonus == other.Bonus
-            && Consequences == other.Consequences
         ;
         public override bool Equals(object? obj) => obj is Ability other
             && Equals(other)
@@ -34,29 +32,5 @@ namespace ttrpg.server.Model
                 : lhs.Equals(rhs)
         ;
         public static bool operator !=(Ability? lhs, Ability? rhs) => !(lhs == rhs);
-    }
-
-    public class AbilityConsequence : IEquatable<AbilityConsequence>
-    {
-        public string Minor { get; set; }
-        public string Medium { get; set; }
-        public string Major { get; set; }
-
-        public override int GetHashCode() => HashCode.Combine(Minor, Medium, Major);
-        public bool Equals(AbilityConsequence? other) => other is not null
-            && Minor == other.Minor
-            && Medium == other.Medium
-            && Major == other.Major
-        ;
-        public override bool Equals(object? obj) => obj is AbilityConsequence other
-            && Equals(other)
-        ;
-
-        public static bool operator ==(AbilityConsequence? lhs, AbilityConsequence? rhs)
-            => lhs is null
-                ? rhs is null
-                : lhs.Equals(rhs)
-        ;
-        public static bool operator !=(AbilityConsequence? lhs, AbilityConsequence? rhs) => !(lhs == rhs);
     }
 }

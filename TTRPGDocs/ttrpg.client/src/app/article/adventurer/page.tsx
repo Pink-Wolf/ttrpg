@@ -16,13 +16,6 @@ export default function PlayerArticle() {
         </p>
 
         <section>
-            <p>
-                Characters gain levels in skills from various sources. A character has a skill if they have at least 1 (non-temporary) level in that skill.
-                If a character gains level in a skill from multiple sources, then their actual level is the sum of these sources.
-            </p>
-        </section>
-
-        <section>
             <h2>Level 1: Creating an adventurer</h2>
             <p>
                 Adventurers gain a <Link href="/destiny">Destiny</Link> (what other systems usually calls a class) chosen by the Player.

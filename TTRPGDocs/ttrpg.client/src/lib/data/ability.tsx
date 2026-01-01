@@ -9,11 +9,4 @@ export default interface Ability {
     target?: string;
     skill?: string;
     bonus?: string;
-    consequences?: AbilityConsequence;
-}
-
-export interface AbilityConsequence {
-    minor: string;
-    medium: string;
-    major: string;
 }

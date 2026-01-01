@@ -8,20 +8,22 @@
       "summary": "Origin: Younger elves, embodying fey whimsy.",
       "description": "An elf younger than a century, who usually embodies the whimsy of their fey origins.",
       "attributes": {
-        "{Wits}": "2",
-        "{Intellect}": "1"
+        "Physique": "d4",
+        "Wits": "d8",
+        "Intellect": "d6",
+        "Heart": "d6"
       },
       "skills": {
-        "{Nature} and {Dodge}": "1",
-        "{Arcane} and {Warding}": "2",
+        "{Nature} and {Dodge}": "2",
+        "{Arcane} and {Warding}": "1",
         "{Trickery}": "1"
       },
       "abilities": [
         {
           "name": "A Play at Emotions",
-          "description": "You add your {Wits} to, but subtract your {Heart} from, the rolled value.",
+          "description": "Use the {Wits} skill of the same category, like {Dodge} intead of {Will}.",
           "frequency": "1 per day",
-          "reaction": "You roll {Heart} or a {Heart}-skill.",
+          "reaction": "Perform an action using a general {Heart} skill.",
           "target": "Self"
         }
       ]
@@ -31,12 +33,14 @@
       "summary": "Origin: Older elves, embodying nature.",
       "description": "An elf older than a century, who usually has left behind their fey whimsy for tranquil rest.",
       "attributes": {
-        "{Wits}": "1",
-        "{Intellect}": "2"
+        "Physique": "d4",
+        "Wits": "d6",
+        "Intellect": "d8",
+        "Heart": "d6"
       },
       "skills": {
-        "{Nature} and {Dodge}": "2",
-        "{Arcane} and {Warding}": "1",
+        "{Nature} and {Dodge}": "1",
+        "{Arcane} and {Warding}": "2",
         "{Lore}": "1"
       },
       "abilities": [

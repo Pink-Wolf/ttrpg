@@ -13,13 +13,15 @@ export const metadata: Metadata = {
 export default function SkillArticle() {
     return (<article>
         <h1>Attributes and Skills</h1>
-        <p>Attributes are the broad capabilities and natural talents of a character, whereas skills are the specific areas a character has trained.</p>
+        <p> Attributes represents the broad capabilities and natural talents of a character, whereas skills represent the specific areas a character is trained in. </p>
+
 
         <section>
             <h2>Attributes</h2>
             <p>
-                Every character has every attribute, though they likely have 0 levels in some of them.
-                There are 4 attributes:
+                There are 4 attributes.
+                Adventurers have a dice associated with each attribute (one 4-, two 6-, and one 8-sided die).
+                The player can roll this dice to achieve actions beyond their usual skill level.
             </p>
             <table className="attribute-table">
                 <thead>
@@ -42,10 +44,27 @@ export default function SkillArticle() {
         <section>
             <h2>Skills</h2>
             <p>
-                The amount of skills is only limited by one&apos;s imagination. There is for example one skill for every tool or niche one can think of. <br />
-                Most skills have an associated attribute; if a character has one of these skills, then they add their score in that attribute to the skill&apos;s score. <br />
-                A character has a skill if they have at least one (non-temporary) level in that skill. <br />
+                The amount of skills is only limited by one&apos;s imagination. There is for example a skill for every tool or craft that one can think of. <br />
+
+                When performing an action, a character may use one of their skills (as appropriate) to succeed at the action.
+                Most skills are associated with an attribute, which further helps succeed at an action.
             </p>
+
+            <p>
+                A character has a skill if they have at least one level in it, but they can gain more levels in a skill to be able to perform even more difficult actions.
+                Each level represents a certain level of proficiency:
+            </p>
+            <table id="level-description">
+                <tbody>
+                    <tr><th> 0: </th><td> Unskilled         </td><td> (The level when you do not have the skill)</td></tr>
+                    <tr><th> 1: </th><td> Amateur           </td><td> (On equal level with someone who exercises the skill in their spare time) </td></tr>
+                    <tr><th> 2: </th><td> Professional      </td><td> (On equal level with someone whose work mainly concerns the use of this skill) </td></tr>
+                    <tr><th> 4: </th><td> Expert            </td><td> (On equal level with the greatest in the region) </td></tr>
+                    <tr><th> 7: </th><td> Legendary         </td><td> (One of the best in the world) </td></tr>
+                    <tr><th> 10: </th><td> Godly             </td><td> (On equal level with miracles performed by gods) </td></tr>
+                </tbody>
+            </table>
+            <p></p>
             <p>
                 While there are an infinite number of skills, one will mostly use the following 24 general skills (6 for each attribute):
             </p>
@@ -69,15 +88,6 @@ export default function SkillArticle() {
                     })}
                 </tbody>
             </table>
-        </section>
-
-        <section>
-            <h2>Temporary Skills</h2>
-            <p>
-                It is possible for characters to gain &quot;temporary&quot; levels in skills, for example from tools like a <Keyword>Staff</Keyword>.
-                These only apply if the character already has at least one non-temporary level in the skill.
-                Other than this one restriction, temporary skill levels are no different from non-temporary skill levels.
-            </p>
         </section>
 
         <section>

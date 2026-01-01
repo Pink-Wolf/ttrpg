@@ -16,7 +16,7 @@
 
             #origin-attribute-table > tbody > tr > * {
                 display: block;
-                width: 15em;
+                width: 5em;
                 text-wrap: balance;
                 text-align: center;
             }
