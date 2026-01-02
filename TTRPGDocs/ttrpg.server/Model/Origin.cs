@@ -7,7 +7,6 @@ namespace ttrpg.server.Model
         public string Name { get; set; }
         public string Summary { get; set; }
         public string Description { get; set; }
-        public Dictionary<string, string>? Attributes { get; set; }
         public Dictionary<string, string>? Skills { get; set; }
         public List<Ability>? Abilities { get; set; }
         public List<Origin>? Suborigins { get; set; }
@@ -17,7 +16,6 @@ namespace ttrpg.server.Model
             && Name == other.Name
             && Summary == other.Summary
             && Description == other.Description
-            && (Attributes?.SequenceEqual(other.Attributes ?? []) ?? (other.Attributes is null))
             && (Skills?.SequenceEqual(other.Skills ?? []) ?? (other.Skills is null))
             && (Abilities?.SequenceEqual(other.Abilities ?? []) ?? (other.Abilities is null))
             && (Suborigins?.SequenceEqual(other.Suborigins ?? []) ?? (other.Suborigins is null))

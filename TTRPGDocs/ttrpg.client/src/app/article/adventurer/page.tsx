@@ -26,6 +26,9 @@ export default function PlayerArticle() {
                 Adventurers gain an <Link href="/origin">Origin</Link> (what others systems usually calls a race/ancestry/background), chosen by the Player.
                 These Origins denote where the Player Character came from, and their lives before the adventure&apos;s beginning.
             </p>
+            <p>
+                Adventurers have an 8-sided, two 6-sided, and one 4-sided die to distribute among their attributes. The player decides this distribution.
+            </p>
         </section>
     </article>)
 }

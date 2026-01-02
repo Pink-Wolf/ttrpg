@@ -7,12 +7,6 @@
       "name": "Non-ancient",
       "summary": "Origin: Younger elves, embodying fey whimsy.",
       "description": "An elf younger than a century, who usually embodies the whimsy of their fey origins.",
-      "attributes": {
-        "Physique": "d4",
-        "Wits": "d8",
-        "Intellect": "d6",
-        "Heart": "d6"
-      },
       "skills": {
         "{Nature} and {Dodge}": "2",
         "{Arcane} and {Warding}": "1",
@@ -32,12 +26,6 @@
       "name": "Ancient",
       "summary": "Origin: Older elves, embodying nature.",
       "description": "An elf older than a century, who usually has left behind their fey whimsy for tranquil rest.",
-      "attributes": {
-        "Physique": "d4",
-        "Wits": "d6",
-        "Intellect": "d8",
-        "Heart": "d6"
-      },
       "skills": {
         "{Nature} and {Dodge}": "1",
         "{Arcane} and {Warding}": "2",

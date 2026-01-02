@@ -10,26 +10,6 @@ async function InnerOriginViewer(origin: Origin) {
         <h1>{origin.name}</h1>
         <FormattedText>{origin.description}</FormattedText>
 
-        <section hidden={origin.attributes === undefined}>
-            You have the following dice for each attribute:
-            <table id="origin-attribute-table">
-                <thead>
-                    <tr>
-                        <th>Attribute</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Object.entries(origin.attributes ?? {}).map(([attribute, level]) => {
-                        return (<tr key={attribute}>
-                            <th><Keyword>{attribute}</Keyword></th>
-                            <td><FormattedText>{level}</FormattedText></td>
-                        </tr>)
-                    })}
-                </tbody>
-            </table>
-        </section>
-
         <section hidden={origin.skills === undefined}>
             Gain the following skills:
             <ul>

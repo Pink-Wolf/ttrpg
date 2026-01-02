@@ -1,7 +1,7 @@
 {
   "name": "Guideline",
   "summary": "",
-  "description": "A d4 for one attribute, a d6 for two attributes, and a d8 for one attribute.",
+  "description": "",
   "skills": {
     "Two Primary Skills (Excluding {Defense})": "2",
     "One Secondary Skill (Excluding {Defense})": "1",

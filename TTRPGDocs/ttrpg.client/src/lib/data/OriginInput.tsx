@@ -19,17 +19,6 @@ export default function OriginInput({ value, setter, idPath, label, disabled }: 
             field="description"
         />
         <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
-            field="attributes" fieldInput={props => OptionalInput({
-                ...props,
-                onBecomingDefined: () => ({}),
-                definedInput: propsObj => {
-                    const props = propsObj as BaseInputProps<Record<string, string>>;
-                    props.value = Object.fromEntries(GetAttributes().map((attribute) => [attribute.name, props.value[attribute.name] ?? ""]))
-                    return SmartInput({ ...props });
-                }
-            })}
-        />
-        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
             field="skills" fieldInput={props => OptionalInput({
                 ...props,
                 onBecomingDefined: () => ({}),
