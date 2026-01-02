@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 import type { Metadata } from "next";
+import { MedievalSharp, Atkinson_Hyperlegible } from 'next/font/google'
 import { getAllDestinies } from "@/data/destiny";
 import NavigationMenu from "@/NavigationMenu";
 import getArticleNames from "./article/getArticleNames";
@@ -12,6 +13,17 @@ export const metadata: Metadata = {
     title: "Pink's TTRPG",
     description: "This ttrpg is still in its early stages of development",
 };
+
+const headerFont = MedievalSharp({
+    weight: '400',
+    subsets: ['latin'],
+    variable: '--headerFont'
+})
+const bodyFont = Atkinson_Hyperlegible({
+    weight: '400',
+    subsets: ['latin'],
+    variable: '--bodyFont'
+})
 
 async function HeaderMenu() {
     const articles = getArticleNames()
@@ -76,7 +88,7 @@ async function HeaderMenu() {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en">
+        <html lang="en" className={`${headerFont.variable} ${bodyFont.variable}`}>
             <body>
                 <HeaderMenu />
                 {children}

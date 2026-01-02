@@ -1,15 +1,8 @@
-#level-description {
-    margin-left: 1em;
+#level-description > * > tr > * {
+    border: hidden;
+    padding-left: 1em;
+    background: var(--background)
 }
-
-    #level-description > * > tr {
-        border: hidden;
-    }
-
-        #level-description > * > tr > td {
-            border: hidden;
-            padding-left: 1em;
-        }
 
 .attribute-table {
     border: 0;
@@ -45,3 +38,6 @@
     grid-template-columns: repeat(auto-fill, 15em);
     grid-gap: 1em;
 }
+    .skill-detail-section > * {
+        margin: 0;
+    }

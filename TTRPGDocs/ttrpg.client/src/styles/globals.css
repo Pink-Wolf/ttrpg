@@ -1,19 +1,25 @@
 :root {
+    --headerColor: #826;
     --mainColor: #000;
     --secondaryColor: #333;
-    --background: #EEE;
-    --secondaryBackground: #BBB;
-    --tertiaryBackground: #DDD;
+    --background: #ECE0D4;
+    --secondaryBackground: #CAC0B6;
+    --borderColor: #6C6064;
     --activeColor: #000;
     --activeSecondaryColor: #181818;
-    --activeBackground: #DDD;
-    --activeSecondaryBackground: #888;
+    --activeBackground: #DCD0C4;
+    --activeSecondaryBackground: #A6A09A;
     color: var(--mainColor);
     background: var(--background);
+    font-family: var(--bodyFont);
 }
 
 *[hidden] { /* Stop css from making hidden elements visible */
     display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    font-family: var(--headerFont);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,27 +27,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 3em;
+    color: var(--headerColor);
 }
 
 h2 {
-    font-size: 1.25em;
+    font-size: 2em;
+    color: var(--headerColor);
 }
 
 h3 {
-    font-size: 1.125em;
+    font-size: 1.5em;
 }
 
 h4 {
-    font-size: 1em;
+    font-size: 1.125em;
 }
 
 h5 {
-    font-size: 1.03125em;
+    font-size: 1.0625em;
 }
 
 h6 {
-    font-size: 1.015625em;
+    font-size: 1em;
 }
 
 ul, ol {
@@ -62,24 +70,19 @@ p + p {
 
 blockquote {
     border-left: 4px solid;
-    border-color: var(--secondaryBackground);
+    border-color: var(--borderColor);
     margin: 0;
     padding: 4px 0 4px 16px;
-}
-
-.warning {
-    --background: #FF8;
-    --secondaryBackground: #CC2;
-    --activeBackground: #EE4;
-    --activeSecondaryBackground: #AA0;
-    background: var(--background);
 }
 
 table, table > * > * > * {
     border: 1px solid;
     border-collapse: collapse;
-    border-color: var(--secondaryBackground);
+    border-color: var(--borderColor);
 }
+    table > * > * > * {
+        background: var(--secondaryBackground);
+    }
 
 label, .input-label {
     display: flex;
@@ -96,7 +99,7 @@ input:not([type]), input[type=text], textarea {
 .ability-editor {
     border: 5px solid;
     border-collapse: collapse;
-    border-color: var(--secondaryBackground);
+    border-color: var(--borderColor);
     padding: 5px;
 }
 
