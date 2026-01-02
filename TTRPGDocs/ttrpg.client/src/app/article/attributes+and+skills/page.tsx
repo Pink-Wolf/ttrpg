@@ -44,13 +44,7 @@ export default function SkillArticle() {
         <section>
             <h2>Skills</h2>
             <p>
-                The amount of skills is only limited by one&apos;s imagination. There is for example a skill for every tool or craft that one can think of. <br />
-
                 When performing an action, a character may use one of their skills (as appropriate) to succeed at the action.
-                Most skills are associated with an attribute, which further helps succeed at an action.
-            </p>
-
-            <p>
                 A character has a skill if they have at least one level in it, but they can gain more levels in a skill to be able to perform even more difficult actions.
                 Each level represents a certain level of proficiency:
             </p>
@@ -66,7 +60,7 @@ export default function SkillArticle() {
             </table>
             <p></p>
             <p>
-                While there are an infinite number of skills, one will mostly use the following 24 general skills (6 for each attribute):
+                The game contains 24 skills, 6 per attribute:
             </p>
             <table className="skill-table">
                 <thead>
@@ -91,7 +85,7 @@ export default function SkillArticle() {
         </section>
 
         <section>
-            <h2>General Skill Descriptions</h2>
+            <h2>Detailed Skill Descriptions</h2>
             <div className="skill-detail-section">
                 {GetAttributes().map(attribute => {
                     return (<section key={attribute.name}>

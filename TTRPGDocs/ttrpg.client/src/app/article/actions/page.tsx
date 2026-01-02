@@ -23,14 +23,10 @@ export default function ActionArticle() {
             <ol>
                 <li>The Game Master decides on a difficulty level.</li>
                 <li>
-                    A player decides on a skill of theirs to use (that the Game Master deems appropriate).
-                    If they lack any relevant skills, then they are considered using a skill of level 0.
+                    A player decides on a skill to use (that the Game Master deems appropriate).
                 </li>
                 <li>
-                    An appropriate attribute is decided as well; This is generally always the attribute associated with the used skill.
-                </li>
-                <li>
-                    The Player rolls their die for the appropriate attribute, and then adds any roll bonuses to the rolled value.
+                    The Player rolls their die for the skill&apos;s attribute, and then adds any roll bonuses to the rolled value.
                 </li>
                 <li>
                     If the rolled value is at least 4, then the skill is considered one level higher for the outcome of this action. <br />
