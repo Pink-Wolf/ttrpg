@@ -22,16 +22,16 @@ export default function ActionArticle() {
             When an action is attemped, then the following process determines its result:
             <ol>
                 <li>The Game Master decides on a difficulty level.</li>
-                <li>
-                    A player decides on a skill to use (that the Game Master deems appropriate).
-                </li>
+                <li>The Player decides on a skill to use (that the Game Master deems appropriate).</li>
                 <li>
                     The Player rolls their die for the skill&apos;s attribute, and then adds any roll bonuses to the rolled value.
-                </li>
-                <li>
-                    If the rolled value is at least 4, then the skill is considered one level higher for the outcome of this action. <br />
-                    If the rolled value is 8, then go back to step #4 and roll again (to potentially increase the level further).
-                    The roll bonus for this new roll is however much the rolled value exceeded 8 (So no bonus if the rolled value is exactly 8, but for example 4 if the rolled value is 12).
+                    <ul>
+                        <li>If the rolled value is at least 4, then the skill is considered one level higher for the outcome of this action.</li>
+                        <li>
+                            If the rolled value is 8, then roll again to potentially increase the level further.
+                            The roll bonus for this new roll is however much the old rolled value exceeded 8 (So no bonus if the rolled value is exactly 8, but for example 4 if the rolled value is 12).
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     If the skill&apos;s level is less than the difficulty level, then the character fails to perform the action, and a negative consequence may befall them.
@@ -43,7 +43,7 @@ export default function ActionArticle() {
             </ol>
 
             <p>
-                If the action succeeds no matter the rolled value, and the action has no listed bonuses, then step #3 and #4 should be skipped.
+                If the action succeeds no matter the rolled value, and the action has no listed bonuses, then step #3 should be skipped.
             </p>
 
             <p>
