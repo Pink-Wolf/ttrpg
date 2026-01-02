@@ -14,6 +14,7 @@ export default function NewOriginButton({
             name: name,
             summary: ``,
             description: ``,
+            skills: [],
         })
         return `/origin/${betterEncodeURIComponent(name)}/editor`
     }
