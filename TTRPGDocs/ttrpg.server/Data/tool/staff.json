@@ -6,7 +6,7 @@
     {
       "name": "Hit",
       "description": "Hit something with your stick, dealing 3 {Bludgeoning} damage.",
-      "skill": "{Physique}",
+      "skill": "{Athletics}",
       "bonus": "Deal an additional 3 damage per bonus."
     }
   ]

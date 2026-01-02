@@ -7,14 +7,14 @@
       "name": "Slash",
       "description": "Swing your sword at a target, dealing 6 {Slashing} damage.",
       "target": "One within melee range",
-      "skill": "{Physique}",
+      "skill": "{Athletics}",
       "bonus": "Deal an additional 3 damage per bonus.\n\nIf you gain at least 2 bonuses, inflict a physical wound by cutting off a limb from the target."
     },
     {
       "name": "Stab",
       "description": "Stab your sword into the target, dealing 4 {Piercing} damage.",
       "target": "One within melee range",
-      "skill": "{Physique}",
+      "skill": "{Athletics}",
       "bonus": "Deal an additional 4 damage per bonus.\n\nIf you gain at least 1 bonus, inflict a physical wound that temporarily reduces their {Physique} by 1 level."
     }
   ],

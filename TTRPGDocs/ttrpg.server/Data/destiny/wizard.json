@@ -22,26 +22,26 @@
         "name": "Elemental Spray",
         "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets\u0027 resistance from the following list:\n- {Poison}: Resisted by {Fortitude}.\n- {Fire}: Resisted by {Dodge}.\n- {ArcaneEnergy}: Resisted by {Warding}.\n\nYou roll for each target individually.",
         "frequency": "2 per day",
-        "target": "All within a 2 tile spray",
+        "target": "All within a 2x2 tile rectangle next to you",
         "skill": "Arcane",
         "bonus": "Deal an additional 2 damage per bonus."
       },
       {
         "name": "Prestidigitation",
-        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nAdd 2 level to the rolled value.",
+        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nProvide \u002B2 roll bonus to the action.",
         "frequency": "For each level, 1 per day",
         "reaction": "The target rolls to do an action",
         "target": "You or someone within melee range"
       },
       {
         "name": "Skill Enhancement",
-        "description": "Gain a level in the following skills, if you do not yet have them:\n- {Arcane}.\n- one {Intellect} skill.\n- one {Knowledge} skill."
+        "description": "Gain a level in the following skills, if you do not yet have them:\n- {Arcane}.\n- One {Intellect} skill that is not {Warding}.\n- One {Knowledge} skill.\n- {Warding} and one other {Defense} skill."
       }
     ],
     "2": [
       {
         "name": "Skill Enhancement",
-        "description": "Gain a level in the following skills:\n- {Arcane}.\n- one {Intellect} skill.\n- one {Knowledge} skill.\n\nYou may not gain more than one level in a single skill from this."
+        "description": "Gain a level in the following skills:\n- {Arcane}.\n- One {Intellect} skill that is not {Warding}.\n- One {Knowledge} skill.\n- Two {Defense} skill.\n\nYou may not gain more than one level in a single skill from this."
       }
     ]
   }

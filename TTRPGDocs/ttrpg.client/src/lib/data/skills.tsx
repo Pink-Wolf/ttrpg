@@ -73,7 +73,7 @@ const skillCategories = [
         skills: {
             Physique: {
                 name: "Athletics",
-                description: "The ability to perform deeds requiring physical strength or a high stamina.",
+                description: "The ability to use weapons and perform deeds requiring physical strength or a high stamina.",
                 summary: "{Physique} Movement skill",
             },
             Wits: {

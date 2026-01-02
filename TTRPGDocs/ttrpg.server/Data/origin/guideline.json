@@ -2,11 +2,9 @@
   "name": "Guideline",
   "summary": "",
   "description": "",
-  "skills": {
-    "Two Primary Skills (Excluding {Defense})": "2",
-    "One Secondary Skill (Excluding {Defense})": "1",
-    "Two {Defense} Skills": "1"
-  },
+  "skills": [
+    "3 non-{Defense} skills."
+  ],
   "abilities": [
     {
       "name": "Skill Check Ability",

@@ -49,6 +49,7 @@ export default function OriginInput({ value, setter, idPath, label, disabled }: 
                         name: "",
                         summary: "",
                         description: "",
+                        skills: [],
                     })
                 })
             })}

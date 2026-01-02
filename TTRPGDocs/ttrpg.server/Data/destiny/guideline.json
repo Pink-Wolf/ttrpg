@@ -28,13 +28,13 @@
       },
       {
         "name": "Skill Enhancement",
-        "description": "1 level to 3 different skills, if you do not yet have them."
+        "description": "1 level to 3 different non-{Defense} skills, if you do not yet have them.\n\n1 level to 2 different {Defense} skills, one of which picked by the player."
       }
     ],
     "2": [
       {
         "name": "Skill Enhancement",
-        "description": "1 level to 3 different skills."
+        "description": "1 level to 3 different non-{Defense} skills.\n\n1 level to 2 different {Defense} skills of the player\u0027s choice."
       }
     ]
   }
