@@ -61,7 +61,7 @@ export default function SkillArticle() {
                     <tr><th> 2:  </th><td> Professional      </td><td> (On equal level with someone whose work mainly concerns the use of this skill) </td></tr>
                     <tr><th> 4:  </th><td> Expert            </td><td> (On equal level with the greatest in the region) </td></tr>
                     <tr><th> 7:  </th><td> Legendary         </td><td> (One of the best in the world) </td></tr>
-                    <tr><th> 10: </th><td> Godly             </td><td> (On equal level with miracles performed by gods) </td></tr>
+                    <tr><th> 10: </th><td> Godly             </td><td> (Able to perform miracles on the level of gods) </td></tr>
                 </tbody>
             </table>
             <p></p>

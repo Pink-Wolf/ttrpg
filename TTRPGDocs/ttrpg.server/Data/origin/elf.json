@@ -16,7 +16,7 @@
         {
           "name": "A Play at Emotions",
           "description": "Use the {Wits} skill of the same category, like {Dodge} intead of {Will}.",
-          "frequency": "1 per day",
+          "frequency": "Once per day",
           "reaction": "Perform an action using a general {Heart} skill.",
           "target": "Self"
         }

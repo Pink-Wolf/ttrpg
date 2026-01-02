@@ -21,7 +21,7 @@
       {
         "name": "Elemental Spray",
         "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets\u0027 resistance from the following list:\n- {Poison}: Resisted by {Fortitude}.\n- {Fire}: Resisted by {Dodge}.\n- {ArcaneEnergy}: Resisted by {Warding}.\n\nYou roll for each target individually.",
-        "frequency": "2 per day",
+        "frequency": "Twice per day",
         "time": "2 seconds",
         "target": "All within a 2x2 tile rectangle next to you",
         "skill": "Arcane",
@@ -29,9 +29,9 @@
       },
       {
         "name": "Prestidigitation",
-        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nProvide \u002B2 roll bonus to the action.",
-        "frequency": "For each level, 1 per day",
-        "reaction": "The target rolls to do an action",
+        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nProvide a \u002B2 roll bonus to the action.",
+        "frequency": "For each level, once per day",
+        "reaction": "The target attempts to do an action",
         "target": "You or someone within melee range"
       },
       {
