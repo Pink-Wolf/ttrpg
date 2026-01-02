@@ -30,12 +30,12 @@ export default function ActionArticle() {
                     An appropriate attribute is decided as well; This is generally always the attribute associated with the used skill.
                 </li>
                 <li>
-                    The Player rolls their die for the appropriate attribute, and then adds any bonuses to the rolled value.
+                    The Player rolls their die for the appropriate attribute, and then adds any roll bonuses to the rolled value.
                 </li>
                 <li>
                     If the rolled value is at least 4, then the skill is considered one level higher for the outcome of this action. <br />
                     If the rolled value is 8, then go back to step #4 and roll again (to potentially increase the level further).
-                    The bonus for this new roll is however much the rolled value exceeded 8 (So no bonus if the rolled value is exactly 8, but for example 4 if the rolled value is 12).
+                    The roll bonus for this new roll is however much the rolled value exceeded 8 (So no bonus if the rolled value is exactly 8, but for example 4 if the rolled value is 12).
                 </li>
                 <li>
                     If the skill&apos;s level is less than the difficulty level, then the character fails to perform the action, and a negative consequence may befall them.

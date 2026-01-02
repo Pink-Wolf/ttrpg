@@ -25,12 +25,16 @@
       {
         "name": "Skill Check Abillity",
         "description": ""
+      },
+      {
+        "name": "Skill Enhancement",
+        "description": "1 level to 3 different skills, if you do not yet have them."
       }
     ],
     "2": [
       {
         "name": "Skill Enhancement",
-        "description": "\u002B2 to 3 different skills"
+        "description": "1 level to 3 different skills."
       }
     ]
   }

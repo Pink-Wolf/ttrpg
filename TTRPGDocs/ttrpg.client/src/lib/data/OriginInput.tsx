@@ -3,7 +3,6 @@ import { BaseInputProps, FieldInput, BasicInput, OptionalInput, RecordAsArrayInp
 import Ability from "./ability";
 import Origin from "./origin";
 import { AbilityInput } from "./AbilityInput";
-import { GetAttributes } from "./attributes";
 
 export default function OriginInput({ value, setter, idPath, label, disabled }: BaseInputProps<Origin>) {
     return (<div className="origin-editor">
@@ -19,15 +18,10 @@ export default function OriginInput({ value, setter, idPath, label, disabled }: 
             field="description"
         />
         <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
-            field="skills" fieldInput={props => OptionalInput({
-                ...props,
-                onBecomingDefined: () => ({}),
-                definedInput: props => RecordAsArrayInput({
-                    ...props as BaseInputProps<Record<string, string>>,
-                    forEach: BasicInput,
-                    newValue: () => ["", ""] as [string, string],
-                    fieldInput: BasicInput,
-                })
+            field="skills" fieldInput={props => ArrayInput({
+                ...props as BaseInputProps<string[]>,
+                forEach: BasicInput,
+                newValue: () => "",
             })}
         />
         <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}

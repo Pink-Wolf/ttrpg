@@ -2,16 +2,16 @@
   "name": "Elf",
   "summary": "Origin: The fey-touched, in tune with nature.",
   "description": "Touched by the strange fey, these people have a strong connection to nature and the arcane, and live without law in places of uncontrolled nature.\n\nWhere most humanoids lives to be around 100, Elves live to be around 1000. Their nature does, however, takes a stark shift around the age of 100 regardless, going from adults to \u0022ancients\u0022. Elves stop aging like humans at around their 70s, instead growing in height and hardening their skin. As these elves turn a century old, their appearance finalizes into one much alike a grand tree (though their height is rarely changed by more than a dozen centimeters). Indeed, many ancient elves wear clothes adorned with leaves, mimicking a tree\u0027s crown and branches.\n\nWhere non-ancient elves are usually filled with the wonder and whimzy of fey, many turn a tranquil and relaxing leaf as they grow into ancienthood. In this way, it is rarer to find ancient elves, despite elves living most of their lives as ancient beings.\n\nTaking from their fey origins, elves are usually chaotic, a trait they tend to keep as they grow into ancienthood.",
+  "skills": [],
   "suborigins": [
     {
       "name": "Non-ancient",
       "summary": "Origin: Younger elves, embodying fey whimsy.",
       "description": "An elf younger than a century, who usually embodies the whimsy of their fey origins.",
-      "skills": {
-        "{Nature} and {Dodge}": "2",
-        "{Arcane} and {Warding}": "1",
-        "{Trickery}": "1"
-      },
+      "skills": [
+        "{Trickery} and another {Wits} skill that is not {Dodge}.",
+        "An {Intellect} skill that is not {Warding}."
+      ],
       "abilities": [
         {
           "name": "A Play at Emotions",
@@ -26,11 +26,10 @@
       "name": "Ancient",
       "summary": "Origin: Older elves, embodying nature.",
       "description": "An elf older than a century, who usually has left behind their fey whimsy for tranquil rest.",
-      "skills": {
-        "{Nature} and {Dodge}": "1",
-        "{Arcane} and {Warding}": "2",
-        "{Lore}": "1"
-      },
+      "skills": [
+        "{Lore} and another {Intellect} skill that is not {Warding}.",
+        "A {Wits} skill that is not {Dodge}."
+      ],
       "abilities": [
         {
           "name": "Wooden Skin",

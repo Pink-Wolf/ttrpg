@@ -3,19 +3,18 @@ import betterEncodeURIComponent from "@/betterEncodeURIComponent"
 import FormattedText from "@/formatter"
 import Origin from "./origin"
 import { AbilityViewer } from "./AbilityViewer"
-import Keyword from "@/Keyword"
 
 async function InnerOriginViewer(origin: Origin) {
     return (<Fragment>
         <h1>{origin.name}</h1>
         <FormattedText>{origin.description}</FormattedText>
 
-        <section hidden={origin.skills === undefined}>
-            Gain the following skills:
+        <section hidden={origin.skills.length === 0}>
+            Gain a level in the following skills, if you do not yet have them:
             <ul>
-                {Object.entries(origin.skills ?? {}).map(([skill, level]) => {
-                    return (<li key={skill}>
-                        <FormattedText>**{skill}**: {level}</FormattedText>
+                {origin.skills.map((skill, index) => {
+                    return (<li key={index}>
+                        <FormattedText>{skill}</FormattedText>
                     </li>)
                 })}
             </ul>

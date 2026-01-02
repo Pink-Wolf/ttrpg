@@ -1,7 +1,7 @@
 {
   "name": "Staff",
-  "summary": "A simple tool, often used in conjunction with the arcane.",
-  "description": "When an {Arcane} action uses a hand, then you may use the end of this staff as a free hand.",
+  "summary": "A simple tool that provides \u002B1 roll bonus to your {Arcane} actions.",
+  "description": "Provides \u002B1 roll bonus to your {Arcane} actions.\n\nWhen an {Arcane} action uses a hand, then you may use the end of this staff as a free hand.",
   "abilities": [
     {
       "name": "Hit",

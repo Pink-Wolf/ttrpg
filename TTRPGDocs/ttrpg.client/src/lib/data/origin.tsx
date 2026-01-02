@@ -7,7 +7,7 @@ export default interface Origin {
     name: string;
     summary: string;
     description: string;
-    skills?: Record<string, string>;
+    skills: string[];
     abilities?: Ability[];
     suborigins?: Origin[];
 }

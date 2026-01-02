@@ -32,12 +32,16 @@
         "frequency": "For each level, 1 per day",
         "reaction": "The target rolls to do an action",
         "target": "You or someone within melee range"
+      },
+      {
+        "name": "Skill Enhancement",
+        "description": "Gain a level in the following skills, if you do not yet have them:\n- {Arcane}.\n- one {Intellect} skill.\n- one {Knowledge} skill."
       }
     ],
     "2": [
       {
         "name": "Skill Enhancement",
-        "description": "Gain \u002B2 to the following skills:\n- {Arcane}.\n- one {Knowledge} skill.\n- one {Intellect} skill that is not {Arcane}.\n"
+        "description": "Gain a level in the following skills:\n- {Arcane}.\n- one {Intellect} skill.\n- one {Knowledge} skill.\n\nYou may not gain more than one level in a single skill from this."
       }
     ]
   }
