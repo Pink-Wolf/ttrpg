@@ -1,3 +1,4 @@
+import "@/styles/destiny.css"
 import FormattedText from "@/formatter"
 import Ability from "./ability"
 import Destiny from "./destiny"

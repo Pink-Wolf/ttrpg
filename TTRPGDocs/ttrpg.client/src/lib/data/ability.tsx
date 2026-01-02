@@ -1,5 +1,3 @@
-import "@/styles/ability.css"
-
 export default interface Ability {
     name: string;
     description: string;

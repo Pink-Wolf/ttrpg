@@ -1,4 +1,3 @@
-import "@/styles/destiny.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import { getData, postData } from "./getData";
 import Ability from "./ability";

@@ -1,5 +1,6 @@
 .ability-viewer > table {
     max-width: 30em;
+    background: var(--tertiaryBackground);
 }
 
     .ability-viewer > table > thead > tr > th {

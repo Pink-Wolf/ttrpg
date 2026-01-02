@@ -1,3 +1,4 @@
+import "@/styles/ability.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent"
 import FormattedText, { toTitleCase } from "@/formatter"
 import Ability from "./ability"
