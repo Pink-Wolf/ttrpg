@@ -30,6 +30,7 @@
         .navigation-menu > li > .navigation-menu {
             visibility: hidden;
             opacity: 0;
+            z-index: 10;
             position: absolute;
             margin: 0 0 0 -2px;
             top: 100%;
