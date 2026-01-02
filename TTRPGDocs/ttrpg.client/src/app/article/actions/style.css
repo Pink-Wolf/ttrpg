@@ -1,0 +1,12 @@
+#difficulty-description {
+    margin-left: 1em;
+}
+
+    #difficulty-description > * > tr {
+        border: hidden;
+    }
+
+        #difficulty-description > * > tr > td {
+            border: hidden;
+            padding-left: 1em;
+        }

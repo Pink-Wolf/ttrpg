@@ -1,3 +1,4 @@
+import "./style.css"
 import type { Metadata } from "next";
 import Keyword from "@/Keyword";
 
@@ -5,27 +6,25 @@ export default function ActionArticle() {
     return (<article>
         <h1>Actions</h1>
         <p>
-            When performing an action, whether it succeeds depends on its difficulty and the skills of the acting character.
+            When a character performs an action, the Game Master decides on the difficulty level of that action.
+            If the character has an appropriate skill of that level, then the action succeeds.
+            If not, then they may still be able to succeed, using that skill&apos;s attribute.
         </p>
         <p>
-            If a character acts against another character, then the outcome is determined only from the perspective of the acting character. <br />
-            If only one of these characters are controlled by a Player, then they are considered the acting character
-            (even if the action is then to react and defend).
+
+            If a character acts against another character, then the outcome is determined from the perspective of the one controlled by a player. <br />
+            If neither or both is controlled by the player, then it is determined from the perspective of the acting character. <br />
+            If both are equally acting, then it is considered two actions.
         </p>
 
         <h2>Formal Process</h2>
         <section>
-            <p>
-                To determine the outcome of an action attempted, then a difficulty and acting level is determined.
-                The action succeeds when the acting level is at least as great as the difficulty level.
-                The exact process is as follows:
-            </p>
+            When an action is attemped, then the following process determines its result:
             <ol>
-                <li>When an action is to be performed, the Game Master decides on a difficulty level.</li>
+                <li>The Game Master decides on a difficulty level.</li>
                 <li>
                     A player decides on a skill of theirs to use (that the Game Master deems appropriate).
-                    Their acting level is equal to their level in this skill.
-                    If they lack any relevant skills, then their acting level is 0.
+                    If they lack any relevant skills, then they are considered using a skill of level 0.
                 </li>
                 <li>
                     An appropriate attribute is decided as well; This is generally always the attribute associated with the used skill.
@@ -34,31 +33,30 @@ export default function ActionArticle() {
                     The Player rolls their die for the appropriate attribute, and then adds any bonuses to the rolled value.
                 </li>
                 <li>
-                    If the rolled value is at least 4, then the acting level is increased by 1. <br />
-                    If the rolled value is 8, then go back to step #4 to roll again.
-                    The bonus for this new roll is however much the rolled value exceeded 8 (So no bonus if the rolled value is 8, but 4 if the rolled value is 12).
+                    If the rolled value is at least 4, then the skill is considered one level higher for the outcome of this action. <br />
+                    If the rolled value is 8, then go back to step #4 and roll again (to potentially increase the level further).
+                    The bonus for this new roll is however much the rolled value exceeded 8 (So no bonus if the rolled value is exactly 8, but for example 4 if the rolled value is 12).
                 </li>
                 <li>
-                    If the acting level is less than the difficulty level, then the character fails to perform the action, and a negative consequence may befall them. <br />
+                    If the skill&apos;s level is less than the difficulty level, then the character fails to perform the action, and a negative consequence may befall them.
                     The character otherwise succeeds at performing the action.
-                    If the acting level is beyond the difficulty level, then a bonus may be included for each level beyond the difficulty.
+                </li>
+                <li>
+                    If the skill&apos;s level is above the difficulty level, and the action has a listed bonus, then the bonus is granted for each level beyond the difficulty.
                 </li>
             </ol>
 
             <p>
-                Step 3 should be skipped if it would not change the outcome,
-                whether because the acting level is already great enough (and there are no additional bonuses to achieve),
-                or it is much too low for the character to ever succeed (and its negative consequence would not change by the roll).
+                If the action succeeds no matter the rolled value, and the action has no listed bonuses, then step #3 and #4 should be skipped.
             </p>
 
             <p>
-                Especially during combat, the negative consequence may simple be the time lost from the action failing.
+                Especially during combat, the negative consequence from failing may simple be the time lost from the action failing.
                 The point is just to stop the character from retrying forever until they succeed.
             </p>
 
             <p>
-                When a character should gain a positive bonus from overachieving, then that bonus is usually explicitly described in the rules.
-                Simple actions may often not have any bonuses, and actions with a difficulty of 0 should never.
+                Note that simple actions should rarely have any listed bonuses, and actions with a difficulty of 0 should never. <br />
             </p>
         </section>
 
@@ -80,8 +78,19 @@ export default function ActionArticle() {
                 </tbody>
             </table>
 
+            <p> A Game Master may also use the following guidelines to determine the difficulty level based on the adventuring party&apos;s capabilities: </p>
+            <table>
+                <thead>
+                    <tr><th> Difficulty to Succeed </th><th> Difficulty Level </th></tr>
+                </thead>
+                <tbody>
+                    <tr><th> Easy           </th><td> One below the characters&apos; level. </td></tr>
+                    <tr><th> Medium         </th><td> Equal to the characters&apos; level. </td></tr>
+                    <tr><th> Hard           </th><td> One above the characters&apos; level. </td></tr>
+                    <tr><th> Extremely Hard </th><td> Two above the characters&apos; level. </td></tr>
+                </tbody>
+            </table>
         </section>
-
     </article>)
 }
 
