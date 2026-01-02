@@ -31,11 +31,12 @@ export default function ActionArticle() {
                     An appropriate attribute is decided as well; This is generally always the attribute associated with the used skill.
                 </li>
                 <li>
-                    The Player rolls their die for the appropriate attribute, and then adds any bonuses to the rolled value until it becomes an 8.
+                    The Player rolls their die for the appropriate attribute, and then adds any bonuses to the rolled value.
                 </li>
                 <li>
-                    If the rolled value is at least 4, then the acting level is increased by 1.
-                    If the rolled value is 8, then repeat from step #4 (only using any bonuses not yet added).
+                    If the rolled value is at least 4, then the acting level is increased by 1. <br />
+                    If the rolled value is 8, then go back to step #4 to roll again.
+                    The bonus for this new roll is however much the rolled value exceeded 8 (So no bonus if the rolled value is 8, but 4 if the rolled value is 12).
                 </li>
                 <li>
                     If the acting level is less than the difficulty level, then the character fails to perform the action, and a negative consequence may befall them. <br />
@@ -70,11 +71,11 @@ export default function ActionArticle() {
             <p> If the act is not against another character, then the difficulty level should be set as follows: </p>
             <table id="difficulty-description">
                 <tbody>
-                    <tr><th> 0: </th><td> Unskilled         </td><td> (Everyone can always do this action)</td></tr>
-                    <tr><th> 1: </th><td> Amateur           </td><td> (Anyone skilled can consistently do this action) </td></tr>
-                    <tr><th> 2: </th><td> Professional      </td><td> (The expected work of a professional) </td></tr>
-                    <tr><th> 4: </th><td> Expert            </td><td> (Exceptional acts) </td></tr>
-                    <tr><th> 7: </th><td> Legendary         </td><td> (Actions whose difficulty alone makes them worthy to be recorded in stories) </td></tr>
+                    <tr><th> 0:  </th><td> Unskilled         </td><td> (Everyone can always do this action)</td></tr>
+                    <tr><th> 1:  </th><td> Amateur           </td><td> (Anyone skilled can consistently do this action) </td></tr>
+                    <tr><th> 2:  </th><td> Professional      </td><td> (The expected work of a professional) </td></tr>
+                    <tr><th> 4:  </th><td> Expert            </td><td> (Exceptional acts) </td></tr>
+                    <tr><th> 7:  </th><td> Legendary         </td><td> (Actions whose difficulty alone makes them worthy to be recorded in stories) </td></tr>
                     <tr><th> 10: </th><td> Godly             </td><td> (On equal level with miracles performed by gods) </td></tr>
                 </tbody>
             </table>

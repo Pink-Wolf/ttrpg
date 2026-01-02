@@ -4,7 +4,7 @@ import { GetSkillCategories, GetSkillsFromAttribute } from "@/data/skills";
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
-import Keyword, { Tooltip } from "@/Keyword";
+import { Tooltip } from "@/Keyword";
 
 export const metadata: Metadata = {
     title: "Skills",
@@ -56,11 +56,11 @@ export default function SkillArticle() {
             </p>
             <table id="level-description">
                 <tbody>
-                    <tr><th> 0: </th><td> Unskilled         </td><td> (The level when you do not have the skill)</td></tr>
-                    <tr><th> 1: </th><td> Amateur           </td><td> (On equal level with someone who exercises the skill in their spare time) </td></tr>
-                    <tr><th> 2: </th><td> Professional      </td><td> (On equal level with someone whose work mainly concerns the use of this skill) </td></tr>
-                    <tr><th> 4: </th><td> Expert            </td><td> (On equal level with the greatest in the region) </td></tr>
-                    <tr><th> 7: </th><td> Legendary         </td><td> (One of the best in the world) </td></tr>
+                    <tr><th> 0:  </th><td> Unskilled         </td><td> (The level when you do not have the skill)</td></tr>
+                    <tr><th> 1:  </th><td> Amateur           </td><td> (On equal level with someone who exercises the skill in their spare time) </td></tr>
+                    <tr><th> 2:  </th><td> Professional      </td><td> (On equal level with someone whose work mainly concerns the use of this skill) </td></tr>
+                    <tr><th> 4:  </th><td> Expert            </td><td> (On equal level with the greatest in the region) </td></tr>
+                    <tr><th> 7:  </th><td> Legendary         </td><td> (One of the best in the world) </td></tr>
                     <tr><th> 10: </th><td> Godly             </td><td> (On equal level with miracles performed by gods) </td></tr>
                 </tbody>
             </table>
