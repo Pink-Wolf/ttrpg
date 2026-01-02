@@ -1,6 +1,7 @@
 export default interface Ability {
     name: string;
     description: string;
+    time?: string;
     frequency?: string;
     actions?: string;
     reaction?: string;

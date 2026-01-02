@@ -22,6 +22,7 @@
         "name": "Elemental Spray",
         "description": "Send a wave of energy from your hand, dealing 4 damage.\nChoose the type of energy/damage and the targets\u0027 resistance from the following list:\n- {Poison}: Resisted by {Fortitude}.\n- {Fire}: Resisted by {Dodge}.\n- {ArcaneEnergy}: Resisted by {Warding}.\n\nYou roll for each target individually.",
         "frequency": "2 per day",
+        "time": "2 seconds",
         "target": "All within a 2x2 tile rectangle next to you",
         "skill": "Arcane",
         "bonus": "Deal an additional 2 damage per bonus."

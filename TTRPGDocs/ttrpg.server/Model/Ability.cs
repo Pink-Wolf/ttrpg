@@ -7,6 +7,7 @@ namespace ttrpg.server.Model
         public string Name { get; set; }
         public string Description { get; set; }
         public string? Frequency { get; set; }
+        public string? Time { get; set; }
         public string? Reaction { get; set; }
         public string? Target { get; set; }
         public string? Skill {  get; set; }
@@ -17,6 +18,7 @@ namespace ttrpg.server.Model
             && Name == other.Name
             && Description == other.Description
             && Frequency == other.Frequency
+            && Time == other.Time
             && Reaction == other.Reaction
             && Target == other.Target
             && Skill == other.Skill

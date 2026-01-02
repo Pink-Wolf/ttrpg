@@ -13,6 +13,12 @@ export function AbilityInput({ value, setter, idPath, label, disabled }: BaseInp
             field="description"
         />
         <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
+            field="time" fieldInput={props => OptionalInput({
+                ...props,
+                onBecomingDefined: () => "",
+            })}
+        />
+        <FieldInput value={value} setter={setter} idPath={idPath} disabled={disabled}
             field="frequency" fieldInput={props => OptionalInput({
                 ...props,
                 onBecomingDefined: () => "",
