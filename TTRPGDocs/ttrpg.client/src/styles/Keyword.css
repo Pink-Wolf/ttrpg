@@ -1,10 +1,13 @@
 .tooltip {
     visibility: hidden;
     opacity: 0;
-    background: var(--secondaryBackground);
+    background: var(--activeSecondaryBackground);
     position: absolute;
     transition: all .25s ease;
-    padding: .25em;
+    padding: 0 .25em .25em .25em;
+    margin: -1px 0 0 .5em;
+    border: 1px dashed;
+    border-color: var(--borderColor);
 }
     *:hover > .tooltip, .tooltip:hover {
         visibility: visible;
