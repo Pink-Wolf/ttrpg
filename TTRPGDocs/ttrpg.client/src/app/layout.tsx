@@ -25,6 +25,17 @@ const bodyFont = Atkinson_Hyperlegible({
     variable: '--bodyFont'
 })
 
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+    return (
+        <html lang="en" className={`${headerFont.variable} ${bodyFont.variable}`}>
+            <body>
+                <HeaderMenu />
+                {children}
+            </body>
+        </html>
+    );
+}
+
 async function HeaderMenu() {
     const articles = getArticleNames()
     const destinies = getAllDestinies()
@@ -84,15 +95,4 @@ async function HeaderMenu() {
             },
         ]
     } />)
-}
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-    return (
-        <html lang="en" className={`${headerFont.variable} ${bodyFont.variable}`}>
-            <body>
-                <HeaderMenu />
-                {children}
-            </body>
-        </html>
-    );
 }

@@ -2,6 +2,10 @@ import "./style.css"
 import type { Metadata } from "next";
 import Keyword from "@/Keyword";
 
+export const metadata: Metadata = {
+    title: "Actions",
+};
+
 export default function ActionArticle() {
     return (<article>
         <h1>Actions</h1>
@@ -89,7 +93,3 @@ export default function ActionArticle() {
         </section>
     </article>)
 }
-
-export const metadata: Metadata = {
-    title: "Dice",
-};
