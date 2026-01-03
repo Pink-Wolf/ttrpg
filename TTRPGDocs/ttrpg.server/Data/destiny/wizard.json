@@ -29,7 +29,7 @@
       },
       {
         "name": "Prestidigitation",
-        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nProvide a \u002B2 roll bonus to the action.",
+        "description": "By performing an inconspicuous action like tapping your staff, you magically enhance a character, making them perform unnaturally well.\n\nProvide a \u002B2 roll bonus to the action.\n\nAn action can only be affected by Prestidigitation once.",
         "frequency": "For each level, once per day",
         "reaction": "The target attempts to do an action",
         "target": "You or someone within melee range"
