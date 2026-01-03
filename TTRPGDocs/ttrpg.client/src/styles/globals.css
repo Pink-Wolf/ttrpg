@@ -3,7 +3,8 @@
     --mainColor: #000;
     --secondaryColor: #333;
     --background: #ECE0D4;
-    --secondaryBackground: #CAC0B6;
+    --secondaryBackground: rgb(196, 186, 176);
+    --secondaryTransparentBackground: rgb(118, 112, 106, 0.333);
     --borderColor: #6C6064;
     --activeColor: #000;
     --activeSecondaryColor: #181818;
@@ -81,7 +82,7 @@ table, table > * > * > * {
     border-color: var(--borderColor);
 }
     table > * > * > * {
-        background: var(--secondaryBackground);
+        background: var(--secondaryTransparentBackground);
     }
 
 label, .input-label {

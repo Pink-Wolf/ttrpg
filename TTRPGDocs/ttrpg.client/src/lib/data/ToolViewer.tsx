@@ -1,3 +1,4 @@
+import "@/styles/tools.css"
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
 import FormattedText, { toTitleCase } from "@/formatter";
 import Tool from "./tool";

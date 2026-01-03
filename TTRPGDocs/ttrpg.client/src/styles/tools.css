@@ -1,0 +1,6 @@
+.tool-viewer > table > thead > tr > th {
+    font-family: var(--headerFont);
+    font-size: 2em;
+    color: var(--headerColor);
+    text-align: left;
+}
