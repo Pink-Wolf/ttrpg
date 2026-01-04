@@ -1,8 +1,8 @@
 export default function getArticleNames(): string[] {
     return [
+        "Adventurer",
         "Attributes and Skills",
         "Actions",
-        "Adventurer",
-        "Damage Types",
+        "Damage",
     ]
 }

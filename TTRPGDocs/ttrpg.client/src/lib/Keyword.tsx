@@ -9,6 +9,7 @@ import betterEncodeURIComponent from "./betterEncodeURIComponent"
 import { GetDamageTypes } from "./data/damageTypes"
 import { InlineFormattedText } from "./formatter"
 import { getAllTools } from "./data/tool"
+import { GetSimpleKeywords } from "./data/simpleKeyword"
 
 export function Tooltip({ children }: { children: string }) {
     return (<small className="tooltip">
@@ -37,19 +38,19 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
     const origins = getAllOrigins()
     const tools = getAllTools()
 
-    const entries = Object.entries(await destinies).map(([path, item]) => [`/destiny/${path}`, item.name, item.summary])
+    const entries = GetSimpleKeywords().map(keyword => [keyword.path, keyword.name, keyword.summary])
+        .concat(Object.entries(await destinies).map(([path, item]) => [`/destiny/${path}`, item.name, item.summary]))
         .concat(Object.entries(await origins).map(([path, item]) => [`/origin/${path}`, item.name, item.summary]))
         .concat(Object.entries(await tools).map(([path, item]) => [`/tool/${path}`, item.name, item.summary]))
         .concat(GetAttributes().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, `Attribute: ${item.description}`]))
         .concat(GetSkills().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.summary]))
         .concat(GetSkillCategories().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
-        .concat(GetDamageTypes().map(item => [`/article/damage+types#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
+        .concat(GetDamageTypes().map(item => [`/article/damage#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
 
     entries.forEach(([path, name, description]) => {
         const field = name.replace(' ', '')
         record[field] = (<Fragment>
             <Link href={path} className="keyword">{name}<Tooltip>{description}</Tooltip></Link>
-            
         </Fragment>)
     })
 
