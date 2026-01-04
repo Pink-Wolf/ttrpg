@@ -10,6 +10,7 @@ import { GetDamageTypes } from "./data/damageTypes"
 import { InlineFormattedText } from "./formatter"
 import { getAllTools } from "./data/tool"
 import { GetSimpleKeywords } from "./data/simpleKeyword"
+import { GetConditions } from "./data/condition"
 
 export function Tooltip({ children }: { children: string }) {
     return (<small className="tooltip">
@@ -46,6 +47,7 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
         .concat(GetSkills().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.summary]))
         .concat(GetSkillCategories().map(item => [`/article/attributes+and+skills#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
         .concat(GetDamageTypes().map(item => [`/article/damage#${betterEncodeURIComponent(item.name)}`, item.name, item.description]))
+        .concat(GetConditions().map(item => [`/article/conditions#${betterEncodeURIComponent(item.name)}`, item.name, item.summary]))
 
     entries.forEach(([path, name, description]) => {
         const field = name.replace(' ', '')

@@ -13,7 +13,7 @@ export function GetSimpleKeywords(): SimpleKeyword[] {
         },
         {
             name: "Endurance",
-            summary: "How much damage a character can take before being Knocked Out.",
+            summary: "How much damage a character can take before being {KnockedOut}.",
             path: "/article/damage",
         },
     ]

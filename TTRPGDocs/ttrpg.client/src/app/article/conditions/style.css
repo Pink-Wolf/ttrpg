@@ -1,0 +1,10 @@
+.condition-list {
+    display: grid;
+    width: stretch;
+    grid-template-columns: repeat(auto-fill, 15em);
+    grid-gap: 1em;
+}
+
+    .condition-list > * {
+        margin: 0;
+    }

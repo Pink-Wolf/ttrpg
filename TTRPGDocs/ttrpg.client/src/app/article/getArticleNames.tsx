@@ -4,5 +4,6 @@ export default function getArticleNames(): string[] {
         "Attributes and Skills",
         "Actions",
         "Damage",
+        "Conditions",
     ]
 }
