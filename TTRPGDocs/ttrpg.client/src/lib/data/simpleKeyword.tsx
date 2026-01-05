@@ -41,5 +41,20 @@ export function GetSimpleKeywords(): SimpleKeyword[] {
             summary: "How much {Damage} a character can take before being {Knocked_Out}.",
             path: "/article/damage",
         },
+        {
+            name: "Short Rest",
+            summary: "An hour of doing nothing taxing.",
+            path: "/article/rest#short+rest",
+        },
+        {
+            name: "Long Rest",
+            summary: "6 or more hours of sleep. Can only be done once per day.",
+            path: "/article/rest#long+rest",
+        },
+        {
+            name: "Downtime Rest",
+            summary: "A day of doing nothing taxing. Requires a proper bed, warmth and meal, and so cannot be done in the wilderness",
+            path: "/article/rest#downtime+rest",
+        },
     ]
 }

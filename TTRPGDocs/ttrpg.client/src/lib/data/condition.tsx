@@ -14,7 +14,7 @@ export function GetConditions(): Condition[] {
         {
             name: "Physical Wound",
             summary: "Various negative conditions that requires rest to heal.",
-            description: "Different physical wounds provide different negative effects.\n\nPhysical Wounds are healed by a week of rest in a proper bed.\nIf it is unrealistic for mere rest to heal a particular wound, then proper treatment must first be acquired before the rest."
+            description: "Different physical wounds provide different negative effects.\n\nPhysical Wounds are healed by a week of {Downtime_Rest}.\nIf it is unrealistic for mere rest to heal a particular wound, then proper treatment must first be acquired before the rest."
         },
     ]
 }
