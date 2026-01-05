@@ -9,7 +9,7 @@
       "time": "2 seconds",
       "target": "One within melee range",
       "skill": "{Athletics}",
-      "bonus": "For each bonus, deal an additional 3 {Slashing} {Damage}.\n\nIf you gain at least 2 bonuses, inflict a physical wound by cutting off a limb from the target."
+      "bonus": "For each bonus, deal an additional 3 {Slashing} {Damage}.\n\nIf you gain at least 2 bonuses, inflict a {Physical_Wound} that disables a limb of theirs."
     },
     {
       "name": "Stab",
@@ -17,7 +17,7 @@
       "time": "2 seconds",
       "target": "One within melee range",
       "skill": "{Athletics}",
-      "bonus": "For each bonus, deal an additional 4 {Piercing} {Damage} and inflict a physical wound that temporarily reduces their {Physique} by 1 level."
+      "bonus": "For each bonus, deal an additional 4 {Piercing} {Damage} and inflict a {Physical_Wound} that temporarily reduces their {Physique} by 1 level."
     }
   ],
   "rarity": "Common"
