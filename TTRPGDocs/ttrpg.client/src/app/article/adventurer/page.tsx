@@ -12,7 +12,7 @@ export default function PlayerArticle() {
         <p>
             Each Player plays a character, called an &quot;Adventurer&quot;.
             The Player control this adventurer&apos;s choices and rolls for them.
-            As these adventurers gain experiences and grow in level, they gain new abilities, <Keyword>skill</Keyword>s, and more.
+            As these adventurers gain experiences and grow in level, they gain new abilities, <Keyword>Skill</Keyword>s, and more.
             These gains are listed below.
         </p>
 
@@ -28,7 +28,7 @@ export default function PlayerArticle() {
                 These Origins denote where the Player Character came from, and their lives before the adventure&apos;s beginning.
             </p>
             <p>
-                Adventurers have an 8-sided, two 6-sided, and one 4-sided die to distribute among their <Keyword>attribute</Keyword>s. The player decides this distribution.
+                Adventurers have an 8-sided, two 6-sided, and one 4-sided die to distribute among their <Keyword>Attribute</Keyword>s. The player decides this distribution.
             </p>
         </section>
     </article>)
