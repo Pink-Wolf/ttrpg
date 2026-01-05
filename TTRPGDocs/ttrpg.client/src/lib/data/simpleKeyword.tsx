@@ -53,7 +53,7 @@ export function GetSimpleKeywords(): SimpleKeyword[] {
         },
         {
             name: "Downtime Rest",
-            summary: "A day of doing nothing taxing. Requires a proper bed, warmth and meal, and so cannot be done in the wilderness",
+            summary: "A day of doing nothing taxing. Requires a proper bed, warmth and meals, and so cannot be done in the wilderness",
             path: "/article/rest#downtime+rest",
         },
     ]

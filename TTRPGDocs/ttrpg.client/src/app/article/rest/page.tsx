@@ -34,7 +34,7 @@ export default function RestArticle() {
             </p>
             <p>
                 A character can only take one long rest per day. <br />
-                If a character spend 24 hours without a long rest, then they must each hour succeed at an action to not fall asleep immediately.
+                If a character spends 24 hours without a long rest, then they must each hour succeed at an action to not fall asleep immediately.
                 This action uses a level 0 <Keyword>Heart</Keyword> skill, and has a difficulty level of 1 per 24 hours awake.
             </p>
         </section>
