@@ -11,8 +11,8 @@ export default function ActionArticle() {
         <h1>Actions</h1>
         <p>
             When a character performs an action, the Game Master decides on the difficulty level of that action.
-            If the character has an appropriate skill of that level, then the action succeeds.
-            If not, then they may still be able to succeed, using that skill&apos;s attribute.
+            If the character has an appropriate <Keyword>skill</Keyword> of that level, then the action succeeds.
+            If not, then they may still be able to succeed, using that <Keyword>skill</Keyword>&apos;s <Keyword>attribute</Keyword>.
         </p>
         <p>
 
@@ -26,11 +26,11 @@ export default function ActionArticle() {
             When an action is attemped, then the following process determines its result:
             <ol>
                 <li>The Game Master decides on a difficulty level.</li>
-                <li>The Player decides on a skill to use (that the Game Master deems appropriate).</li>
+                <li>The Player decides on a <Keyword>skill</Keyword> to use (that the Game Master deems appropriate).</li>
                 <li>
-                    The Player rolls their die for the skill&apos;s attribute, and then adds any roll bonuses to the rolled value.
+                    The Player rolls their die for the <Keyword>skill</Keyword>&apos;s <Keyword>attribute</Keyword>, and then adds any roll bonuses to the rolled value.
                     <ul>
-                        <li>If the rolled value is at least 4, then the skill is considered one level higher for the outcome of this action.</li>
+                        <li>If the rolled value is at least 4, then the <Keyword>skill</Keyword> is considered one level higher for the outcome of this action.</li>
                         <li>
                             If the rolled value is 8, then roll again to potentially increase the level further.
                             The roll bonus for this new roll is however much the old rolled value exceeded 8 (So no bonus if the rolled value is exactly 8, but for example 4 if the rolled value is 12).
@@ -38,11 +38,11 @@ export default function ActionArticle() {
                     </ul>
                 </li>
                 <li>
-                    If the skill&apos;s level is less than the difficulty level, then the character fails to perform the action, and a negative consequence may befall them.
+                    If the <Keyword>skill</Keyword>&apos;s level is less than the difficulty level, then the character fails to perform the action, and a negative consequence may befall them.
                     The character otherwise succeeds at performing the action.
                 </li>
                 <li>
-                    If the skill&apos;s level is above the difficulty level, and the action has a listed bonus, then the bonus is granted for each level beyond the difficulty.
+                    If the <Keyword>skill</Keyword>&apos;s level is above the difficulty level, and the action has a listed bonus, then the bonus is granted for each level beyond the difficulty.
                 </li>
             </ol>
 
@@ -63,7 +63,7 @@ export default function ActionArticle() {
         <h2>Determining the Difficulty Level</h2>
         <section>
             <p>
-                If one character acts against another character, then the difficulty level is the other&apos;s level in an appropriate skill (like <Keyword>Dodge</Keyword>).
+                If one character acts against another character, then the difficulty level is the other&apos;s level in an appropriate <Keyword>skill</Keyword> (like <Keyword>Dodge</Keyword>).
             </p>
 
             <p> If the act is not against another character, then the difficulty level should be set as follows: </p>

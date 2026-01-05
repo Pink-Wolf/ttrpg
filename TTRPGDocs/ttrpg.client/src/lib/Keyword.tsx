@@ -50,7 +50,7 @@ async function updateKeywordRecord(record: Record<string, JSX.Element>) {
         .concat(GetConditions().map(item => [`/article/conditions#${betterEncodeURIComponent(item.name)}`, item.name, item.summary]))
 
     entries.forEach(([path, name, description]) => {
-        const field = name.replace(' ', '')
+        const field = name.replace(' ', '_')
         record[field] = (<Fragment>
             <Link href={path} className="keyword">{name}<Tooltip>{description}</Tooltip></Link>
         </Fragment>)

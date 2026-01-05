@@ -23,5 +23,7 @@ export default async function FormattedText({ children }: { children: string | s
 export function InlineFormattedText({ children }: { children: string | string[] }): string {
     if (typeof (children) !== "string") children = children.join('')
 
-    return children.replace(/[\{\}]/g, '')
+    return children
+        .replace(/[\{\}]/g, '')
+        .replace(`_`, ` `)
 }

@@ -4,7 +4,7 @@ import { GetSkillCategories, GetSkillsFromAttribute } from "@/data/skills";
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import betterEncodeURIComponent from "@/betterEncodeURIComponent";
-import { Tooltip } from "@/Keyword";
+import Keyword, { Tooltip } from "@/Keyword";
 
 export const metadata: Metadata = {
     title: "Skills",
@@ -20,7 +20,7 @@ export default function SkillArticle() {
             <h2>Attributes</h2>
             <p>
                 There are 4 attributes.
-                Adventurers have a dice associated with each attribute (one 4-, two 6-, and one 8-sided die).
+                <Keyword>Adventurer</Keyword>s have a dice associated with each attribute (one 4-, two 6-, and one 8-sided die).
                 The player can roll this dice to achieve actions beyond their usual skill level.
             </p>
             <table className="attribute-table">

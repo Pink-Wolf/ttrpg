@@ -8,8 +8,8 @@ export function GetConditions(): Condition[] {
     return [
         {
             name: "Knocked Out",
-            summary: "Cannot act; caused by taking too much damage.",
-            description: "Cannot perform any actions.\n\nCharacters gain this condition when having more damage than {Endurance}, and loses this condition when not."
+            summary: "Cannot act; caused by taking too much {Damage}.",
+            description: "Cannot perform any actions.\n\nCharacters gain this condition when having more {Damage} than {Endurance}, and loses this condition when not."
         },
     ]
 }

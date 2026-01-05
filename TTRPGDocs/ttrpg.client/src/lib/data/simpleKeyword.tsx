@@ -7,13 +7,38 @@ export default interface SimpleKeyword {
 export function GetSimpleKeywords(): SimpleKeyword[] {
     return [
         {
+            name: "Attribute",
+            summary: "The 4 broad capabilities that {Skill}s can be under. A character has a die associated with each attribute.",
+            path: "/article/attributes+and+skills",
+        },
+        {
+            name: "Skill",
+            summary: "Characters gain levels in various skills to be better at performing related actions.",
+            path: "/article/attributes+and+skills",
+        },
+        {
+            name: "Adventurer",
+            summary: "A Player's character.",
+            path: "/article/adventurer",
+        },
+        {
+            name: "Conditions",
+            summary: "States that can be applied to characters to affect them.",
+            path: "/article/conditions",
+        },
+        {
+            name: "Damage",
+            summary: "When damage is dealt to a character, that character simply accumulates it. Accumulating too much damage causes {Knocked_Out}.",
+            path: "/article/damage",
+        },
+        {
             name: "Fatigue",
-            summary: "Gained over an adventure. Damage cannot be removed below a character's Fatigue.",
+            summary: "Gained over an adventure. {Damage} cannot be removed below a character's Fatigue.",
             path: "/article/damage",
         },
         {
             name: "Endurance",
-            summary: "How much damage a character can take before being {KnockedOut}.",
+            summary: "How much {Damage} a character can take before being {Knocked_Out}.",
             path: "/article/damage",
         },
     ]
