@@ -30,8 +30,8 @@ namespace ttrpg.server.Controllers
         [ProducesResponseType(201)]
         public async Task<ActionResult<Destiny>> SetDestiny([FromBody] Destiny value)
         {
-            await data.SetDestiny(value, out var name);
-            return CreatedAtAction(nameof(GetDestiny), new { path = name }, value);
+            await data.SetDestiny(value, out var path);
+            return CreatedAtAction(nameof(GetDestiny), new { path = path }, value);
         }
     }
 }

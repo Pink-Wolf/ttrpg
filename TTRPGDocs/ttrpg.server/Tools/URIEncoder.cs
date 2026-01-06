@@ -29,8 +29,6 @@ namespace ttrpg.server.Tools
         }
         public static string Decode(string str)
             => DecodeControllerArg(HttpUtility.UrlDecode(str));
-        public static string DecodeControllerArg(string str) => str
-            .Replace('+', ' ')
-        ;
+        public static string DecodeControllerArg(string str) => str;
     }
 }
