@@ -1,0 +1,7 @@
+.glossary {
+    column-width: 15em;
+}
+
+    .glossary > * {
+        margin: 0;
+    }

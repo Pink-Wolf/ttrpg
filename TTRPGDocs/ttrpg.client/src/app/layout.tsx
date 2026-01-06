@@ -93,6 +93,10 @@ async function HeaderMenu() {
                     }
                 }),
             },
+            {
+                name: "Glossary",
+                pathName: "/glossary",
+            },
         ]
     } />)
 }

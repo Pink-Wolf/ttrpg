@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote-client/rsc"
 import { JSX } from "react"
-import { GetKeywordRecord } from "./Keyword"
+import { GetKeywordElementRecord } from "./Keyword"
 
 export function toTitleCase(str: string): string {
     return upperCaseFirstLetter(str.replace(/\s\w/g, x => x.charAt(0) + x.charAt(1).toUpperCase()))
@@ -16,7 +16,7 @@ export default async function FormattedText({ children }: { children: string | s
     if (typeof(children) !== "string") children = children.join('')
 
     const options = {
-        scope: await GetKeywordRecord()
+        scope: await GetKeywordElementRecord()
     }
     return (<MDXRemote source={children} options={options} />)
 }
