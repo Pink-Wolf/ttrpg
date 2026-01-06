@@ -21,7 +21,7 @@ export function Tooltip({ children }: { children: string }) {
 export default async function Keyword({ children }: { children: string | string[] }) {
     if (typeof (children) !== "string") children = children.join('')
 
-    const result = (await GetKeywordRecord())[children]
+    const result = (await GetKeywordElements())[children]
 
     if (process.env.ALLOW_NO_SERVER === `1`)
         return result ?? <Fragment>{children}</Fragment>
@@ -78,13 +78,13 @@ async function updateKeywordRecord(record: KeywordRecord) {
 
     return record
 }
-export async function GetKeywordElementRecord(): Promise<Record<string, JSX.Element>> {
+export async function GetKeywordElements(): Promise<Record<string, JSX.Element>> {
     if (process.env.CACHE_SERVER_DATA != `1`) {
         updateKeywordRecord(await keywordRecord)
     }
     return (await keywordRecord).elementRecord
 }
-export async function GetKeywordRecord(): Promise<Record<string, KeywordData>> {
+export async function GetKeywordData(): Promise<Record<string, KeywordData>> {
     if (process.env.CACHE_SERVER_DATA != `1`) {
         updateKeywordRecord(await keywordRecord)
     }
